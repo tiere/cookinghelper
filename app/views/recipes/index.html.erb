@@ -7,9 +7,10 @@
       </tr>
       <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.name %></td>
+        <td><%= link_to recipe.name, recipe %></td>
       </tr>
       <% end %>
     </table>
+    <%= link_to "New Recipe", new_recipe_path %>
   </div>
 </div>
