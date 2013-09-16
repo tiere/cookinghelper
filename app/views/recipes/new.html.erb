@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h1>New Recipe</h1>
+    <%= form_for(:recipe, url: recipes_path) do |f| %>
+    <fieldset>
+      <legend>Recipe</legend>
+      <div class="row">
+        <div class="large-1 columns">
+          <%= f.label :name, class: "right inline" %>
+        </div>
+        <div class="large-11 columns">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="row">
+        <%= f.submit 'Save recipe', class: "button" %>
+      </div>
+    </fieldset>
+    <% end %>
+  </div>
+</div>
