@@ -1,9 +1,21 @@
 <div class="row">
   <div class="large-12 columns">
     <h1>New Recipe</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
     <%= form_for(:recipe, url: recipes_path) do |f| %>
     <fieldset>
       <legend>Recipe</legend>
+      <% if @recipe.errors.any? %>
+      <% @recipe.errors.full_messages.each do |msg| %>
+      <div data-alert class="alert-box alert large-offset-1">
+        <%= msg %>
+        <a href="#" class="close">&times;</a>
+      </div>
+      <% end %>
+      <% end %>
       <div class="row">
         <div class="large-1 columns">
           <%= f.label :name, class: "right inline" %>
@@ -13,7 +25,9 @@
         </div>
       </div>
       <div class="row">
-        <%= f.submit 'Save recipe', class: "button" %>
+        <div class="large-12 columns large-offset-1">
+          <%= f.submit 'Save recipe', class: "button" %>
+        </div>
       </div>
     </fieldset>
     <% end %>
