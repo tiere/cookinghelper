@@ -17,11 +17,19 @@
       <% end %>
       <% end %>
       <div class="row">
-        <div class="large-1 columns">
+        <div class="large-2 columns">
           <%= f.label :name, class: "right inline" %>
         </div>
-        <div class="large-11 columns">
+        <div class="large-10 columns">
           <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-2 columns">
+          <%= f.label :ingredient.to_s.pluralize, class: "right inline" %>
+        </div>
+        <div class="large-10 columns">
+          <%= f.collection_select(:ingredient_ids, Ingredient.all, :id, :name, {}, { multiple: true }) %>
         </div>
       </div>
       <div class="row">
