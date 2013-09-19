@@ -29,11 +29,18 @@
           <%= f.label :ingredient.to_s.pluralize, class: "right inline" %>
         </div>
         <div class="large-10 columns">
-          <%= f.collection_select(:ingredient_ids, Ingredient.all, :id, :name, {}, { multiple: true }) %>
+          <%= f.collection_select(:ingredient_ids, Ingredient.all, :id, :name,
+          {}, { multiple: true }) %>
         </div>
       </div>
+      <%= f.fields_for :steps do |builder| %>
       <div class="row">
-        <div class="large-12 columns large-offset-1">
+        <%= builder.label :name, "Step" %><br />
+        <%= builder.text_field :name %>
+      </div>
+      <% end %>
+      <div class="row">
+        <div class="large-12 columns large-offset-2">
           <%= f.submit 'Save recipe', class: "button" %>
         </div>
       </div>

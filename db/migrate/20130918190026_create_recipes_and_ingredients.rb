@@ -10,9 +10,9 @@ class CreateRecipesAndIngredients < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :ingredients_recipes do |t|
-      t.integer :ingredient_id
-      t.integer :recipe_id
+    create_table :ingredients_recipes, id: false do |t|
+      t.references :ingredient
+      t.references :recipe
     end
   end
 end
