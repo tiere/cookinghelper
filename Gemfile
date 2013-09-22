@@ -45,3 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'zurb-foundation'
+
+gem 'nested_form'
