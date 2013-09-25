@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920141502) do
+ActiveRecord::Schema.define(version: 20130925134051) do
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20130920141502) do
 
   create_table "steps", force: true do |t|
     t.string   "name"
-    t.time     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "recipe_id"
+    t.integer  "duration"
   end
 
   add_index "steps", ["recipe_id"], name: "index_steps_on_recipe_id", using: :btree
