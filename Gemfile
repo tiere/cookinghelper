@@ -47,3 +47,7 @@ end
 gem 'zurb-foundation'
 
 gem 'nested_form'
+
+group :test do
+  gem 'shoulda'
+end

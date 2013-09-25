@@ -1,32 +1,10 @@
 require 'test_helper'
 
 class IngredientTest < ActiveSupport::TestCase
-  def setup
-    @ingredient = ingredients(:tomato)
-  end
-  test "should save with proper values" do
-    assert @ingredient.valid?, "Ingredient is not valid"
-    assert @ingredient.save, "Ingredient was not saved"
-  end
-
-  test "should not save without a name" do
-    @ingredient.name = nil
-
-    refute @ingredient.valid?, "Ingredient is valid"
-    refute @ingredient.save, "Ingredient was saved"
-  end
-
-  test "should not save with a too short name" do
-    @ingredient.name = 'a'
-
-    refute @ingredient.valid?, "Ingredient is valid"
-    refute @ingredient.save, "Ingredient was saved"
-  end
-
-  test "should not save with too long name" do
-    @ingredient.name = 'b'*31
-
-    refute @ingredient.valid?, "Ingredient is valid"
-    refute @ingredient.save, "Ingredient was saved"
-  end
+  should validate_presence_of(:name)
+  should ensure_length_of(:name).is_at_least(2).is_at_most(30)
+  should validate_uniqueness_of(:name)
+  should_not allow_value('111').for(:name)
+  should_not allow_value('banaani2').for(:name)
+  should allow_value('salt').for(:name)
 end
