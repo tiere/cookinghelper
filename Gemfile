@@ -46,6 +46,8 @@ end
 
 gem 'zurb-foundation'
 
+gem 'simple_form'
+
 gem 'nested_form'
 
 group :test do

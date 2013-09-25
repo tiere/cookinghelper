@@ -2,9 +2,17 @@ require 'test_helper'
 
 class StepTest < ActiveSupport::TestCase
   should validate_presence_of(:name)
-  should ensure_length_of(:name).is_at_least(2).is_at_most(30)
-  should validate_uniqueness_of(:name)
+  should ensure_length_of(:name).is_at_least(2).is_at_most(60)
   should_not allow_value('111').for(:name)
   should_not allow_value('keitto2').for(:name)
-  should allow_value('Banaanien pilkkominen').for(:name)
+  should allow_value('The cutting of bananas').for(:name)
+
+  should validate_presence_of(:duration)
+  should ensure_inclusion_of(:duration).in_range(60..86400)
+  should validate_numericality_of(:duration)
+  should_not allow_value('diipadaapa').for(:duration)
+  should_not allow_value('three').for(:duration)
+  should allow_value(3600).for(:duration)
+
+  should belong_to(:recipe)
 end

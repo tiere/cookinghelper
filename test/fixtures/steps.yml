@@ -2,10 +2,10 @@
 
 boiling:
   name: Boiling of potatoes
-  time: 00:10:00
+  duration: 300
   recipe_id: 1
 
 cutting:
   name: Cutting of carrots
-  time: 00:05:00
+  duration: 600
   recipe_id: 2

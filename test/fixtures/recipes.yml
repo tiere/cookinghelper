@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-porkkanakeitto:
+carrotsoup:
   id: 1
-  name: Porkkanakeitto
+  name: Carrot soup
 
-kalamuhennos:
+fishsticks:
   id: 2
-  name: Kalamuhennos
+  name: Fish sticks

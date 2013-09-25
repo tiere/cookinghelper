@@ -7,4 +7,6 @@ class IngredientTest < ActiveSupport::TestCase
   should_not allow_value('111').for(:name)
   should_not allow_value('banaani2').for(:name)
   should allow_value('salt').for(:name)
+
+  should have_and_belong_to_many(:recipes)
 end
