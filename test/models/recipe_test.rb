@@ -7,7 +7,7 @@ class RecipeTest < ActiveSupport::TestCase
   should_not allow_value('badsoup3').for(:name)
   should allow_value('The extravagant soup of best').for(:name)
 
-
-  should have_and_belong_to_many(:ingredients)
   should have_many(:steps)
+  should have_many(:ingredients)
+  should have_many(:foodstuffs).through(:ingredients)
 end

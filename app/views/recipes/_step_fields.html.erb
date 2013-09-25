@@ -1,11 +1,11 @@
 <div class="row">
   <div class="large-6 columns">
-    <%= f.text_field :name, placeholder: 'Step in the preparation process' %>
+    <%= f.input :name, label: false, placeholder: 'Name for this step' %>
   </div>
   <div class="large-3 columns">
-    <%= time_select :f, :time %>
+    <%= f.input :duration, label: false, placeholder: 'Duration (seconds)' %>
   </div>
   <div class="large-3 columns">
-    <%= f.link_to_remove "Remove this step", class: 'button secondary prefix' %>
+    <%= f.link_to_remove "Remove this step", class: "button prefix secondary" %>
   </div>
 </div>

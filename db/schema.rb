@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925134051) do
+ActiveRecord::Schema.define(version: 20130925175135) do
 
-  create_table "ingredients", force: true do |t|
+  create_table "foodstuffs", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ingredients_recipes", id: false, force: true do |t|
-    t.integer "ingredient_id"
-    t.integer "recipe_id"
+  create_table "ingredients", force: true do |t|
+    t.integer  "recipe_id"
+    t.integer  "foodstuff_id"
+    t.decimal  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "ingredients_recipes", ["ingredient_id", "recipe_id"], name: "index_ingredients_recipes_on_ingredient_id_and_recipe_id", using: :btree
 
   create_table "recipes", force: true do |t|
     t.string   "name"

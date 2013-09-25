@@ -8,7 +8,7 @@
     <h2>Steps</h2>
     <% @recipe.steps.each do |s| %>
     <p><%= s.name %></p>
-    <p><%= s.time.min %></p>
+    <p><%= s.duration %></p>
     <% end %>
     <p><%= link_to "Go to recipe listing", recipes_path %></p>
   </div>
