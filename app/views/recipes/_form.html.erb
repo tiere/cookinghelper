@@ -1,38 +1,7 @@
 <div class="row">
   <div class="large-12 columns">
-    <%= nested_form_for(@recipe, url: recipes_path) do |f| %>
-    <fieldset>
-      <legend>Recipe</legend>
-      <% if @recipe.errors.any? %>
-      <% @recipe.errors.full_messages.each do |msg| %>
-      <div data-alert class="alert-box alert large-offset-1">
-        <%= msg %>
-        <a href="#" class="close">&times;</a>
-      </div>
-      <% end %>
-      <% end %>
-      <div class="row">
-        <div class="large-6 columns">
-          <%= f.label :name %>
-          <%= f.text_field :name, placeholder: 'Name of the recipe' %>
-        </div>
-        <div class="large-6 columns">
-          <%= f.label :ingredient.to_s.pluralize %>
-          <%= f.collection_select(:ingredient_ids, Ingredient.all, :id, :name,
-          {}, { multiple: true }) %>
-        </div>
-      </div>
-      <fieldset>
-        <legend>Steps for the recipe</legend>
-        <%= f.fields_for :steps %>
-        <%= f.link_to_add "Add a step", :steps, class: 'button tiny' %>
-      </fieldset>
-      <div class="row">
-        <div class="large-12 columns">
-          <%= f.submit 'Save recipe', class: "button success" %>
-        </div>
-      </div>
-    </fieldset>
+    <%= simple_form_for @recipe do |f| %>
+    <%= f.input :name, placeholder: "Name of your recipe" %>
     <% end %>
   </div>
 </div>
