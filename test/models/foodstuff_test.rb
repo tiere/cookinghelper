@@ -7,4 +7,7 @@ class FoodstuffTest < ActiveSupport::TestCase
   should_not allow_value('111').for(:name)
   should_not allow_value('banaani2').for(:name)
   should allow_value('salt').for(:name)
+
+  should have_many(:ingredients)
+  should have_many(:recipes).through(:ingredients)
 end
