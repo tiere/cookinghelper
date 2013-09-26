@@ -7,8 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 foodstuffs = Foodstuff.create([
-  { name: 'Tomato' },
-  { name: 'Banana' },
-  { name: 'Flour' },
-  { name: 'Salt' }
-  ])
+                                { name: 'Tomato' },
+                                { name: 'Banana' },
+                                { name: 'Flour' },
+                                { name: 'Salt' }
+])
+
+units = Unit.create([
+                      { name: 'Kilograms', abbreviation: "kg" },
+                      { name: 'Liters', abbreviation: "l" },
+                      { name: 'grams', abbreviation: "g" },
+                      { name: 'units', abbreviation: "kpl" }
+])

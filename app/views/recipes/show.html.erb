@@ -1,15 +1,46 @@
 <div class="row">
-  <div class="large-12 columns">
-    <h1><%= @recipe.name %></h1>
-    <h2>Ingredients</h2>
-    <% @recipe.ingredients.each do |ingredient| %>
-    <p><%= ingredient.name %></p>
-    <% end %>
-    <h2>Steps</h2>
-    <% @recipe.steps.each do |s| %>
-    <p><%= s.name %></p>
-    <p><%= s.duration %></p>
-    <% end %>
-    <p><%= link_to "Go to recipe listing", recipes_path %></p>
-  </div>
+    <div class="large-12 columns">
+        <h1><%= @recipe.name %></h1>
+        <div class="panel callout">
+        <h2>Ingredients</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @recipe.ingredients.each do |ingredient| %>
+                <tr>
+                    <td><%= ingredient.foodstuff.name %></td>
+                    <td><%= ingredient.quantity %></td>
+                    <td><%= ingredient.unit.name %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        </div>
+        <div class="panel callout">
+        <h2>Steps</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+        <% @recipe.steps.each do |s| %>
+        <tr>
+            <td><%= s.name %></td>
+            <td><%= s.duration %></td>
+        </tr>
+        <% end %>
+        </tbody>
+        </table>
+        </div>
+        <p><%= link_to "Go to recipe listing", recipes_path, class: "button" %></p>
+    </div>
 </div>

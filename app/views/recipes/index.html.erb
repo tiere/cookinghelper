@@ -8,9 +8,10 @@
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= link_to recipe.name, recipe %></td>
+        <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
       </tr>
       <% end %>
     </table>
-    <%= link_to "New Recipe", new_recipe_path %>
+    <%= link_to "New Recipe", new_recipe_path, class: 'custom_button' %>
   </div>
 </div>

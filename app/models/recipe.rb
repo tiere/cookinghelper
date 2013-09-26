@@ -11,6 +11,6 @@ class Recipe < ActiveRecord::Base
     length: { minimum: 2, maximum: 60 },
     format: { with: /\A[a-zA-Z ]+\z/ }
 
-  validates_associated :steps
-  validates_associated :ingredients
+  validates_associated :steps, :ingredients
+  validates :steps, :ingredients, presence: true
 end

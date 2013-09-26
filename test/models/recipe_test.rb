@@ -10,4 +10,7 @@ class RecipeTest < ActiveSupport::TestCase
   should have_many(:steps)
   should have_many(:ingredients)
   should have_many(:foodstuffs).through(:ingredients)
+
+  should validate_presence_of(:ingredients)
+  should validate_presence_of(:steps)
 end

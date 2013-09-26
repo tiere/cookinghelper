@@ -10,4 +10,7 @@ class IngredientTest < ActiveSupport::TestCase
   should_not allow_value('moikka').for(:quantity)
   should_not allow_value('threehundrer12').for(:quantity)
   should allow_value('100').for(:quantity)
+
+  should validate_presence_of(:unit)
+  should validate_presence_of(:foodstuff)
 end

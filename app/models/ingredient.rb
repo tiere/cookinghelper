@@ -7,4 +7,7 @@ class Ingredient < ActiveRecord::Base
     presence: true,
     numericality: true,
     inclusion: 0.1..9999
+
+  validates_associated :unit, :foodstuff
+  validates :unit, :foodstuff, presence: true
 end
