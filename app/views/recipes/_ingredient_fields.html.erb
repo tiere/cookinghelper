@@ -1,14 +1,14 @@
 <div class="row">
   <div class="large-4 columns">
-    <%= f.association :foodstuff, prompt: "Choose an ingredient" %>
+    <%= f.association :foodstuff, prompt: "Choose an ingredient", label: false %>
   </div>
   <div class="large-3 columns">
     <%= f.input :quantity, label: false, placeholder: "Quantity" %>
   </div>
   <div class="large-2 columns">
-    <%= f.association :unit, prompt: "Choose unit" %>
+    <%= f.association :unit, prompt: "Choose unit", label: false %>
   </div>
   <div class="large-3 columns">
-    <%= f.link_to_remove "Remove this ingredient", class: "button small secondary prefix" %>
+    <%= f.link_to_remove "Remove this ingredient", class: "remove-button prefix" %>
   </div>
 </div>

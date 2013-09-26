@@ -1,0 +1,30 @@
+@import "foundation_and_overrides";
+
+$active: true;
+$orange: #D83D1D;
+$green: #21A133;
+$reddish: #BB413D;
+
+.orange-button {
+  @include button-base;
+  @include button-size;
+  @include button-style($orange);
+  @include single-transition;
+  @include inset-shadow($active);
+}
+
+.small-green-button {
+  @include button-base;
+  @include button-size($button-sml);
+  @include button-style($green);
+  @include single-transition;
+  @include inset-shadow($active);
+}
+
+.remove-button {
+  @include button-base;
+  @include button-size($button-sml);
+  @include button-style($reddish);
+  @include single-transition;
+  @include inset-shadow($active);
+}
