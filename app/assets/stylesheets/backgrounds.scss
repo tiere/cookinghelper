@@ -1,8 +1,21 @@
 @import "foundation_and_overrides";
 
 $light-orange: #FF8D40;
+$dark: #333;
 
 header {
   margin-bottom: emCalc(20);
   background-color: $light-orange;
+
+  h1, h4 {
+    color: #FFF;
+  }
+}
+
+footer {
+  background-color: $dark;
+  padding-top: emCalc(20);
+  padding-left: emCalc(20);
+  padding-right: emCalc(20);
+  color: #FFFFFF;
 }

@@ -28,3 +28,7 @@ $reddish: #BB413D;
   @include single-transition;
   @include inset-shadow($active);
 }
+
+.right {
+  float: right;
+}
