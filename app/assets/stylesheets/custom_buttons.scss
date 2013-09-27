@@ -1,7 +1,7 @@
 @import "foundation_and_overrides";
 
 $active: true;
-$orange: #D83D1D;
+$orange: #FF6700;
 $green: #21A133;
 $reddish: #BB413D;
 
@@ -16,7 +16,7 @@ $reddish: #BB413D;
 .small-green-button {
   @include button-base;
   @include button-size($button-sml);
-  @include button-style($green);
+  @include button-style($orange);
   @include single-transition;
   @include inset-shadow($active);
 }

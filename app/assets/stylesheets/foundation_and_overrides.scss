@@ -163,7 +163,7 @@ $default-float: left;
 // $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-color: #FFF;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
@@ -1234,12 +1234,12 @@ $default-float: left;
 
 // Background color for the top bar
 
-$topbar-bg: #EA6045;
+// $topbar-bg: #EA6045;
 
 // Height and margin
 
 // $topbar-height: 45px;
-// $topbar-margin-bottom: emCalc(30);
+$topbar-margin-bottom: emCalc(0);
 
 // Control Input height for top bar
 

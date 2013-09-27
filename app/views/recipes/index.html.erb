@@ -1,6 +1,14 @@
+<header>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1>All Recipes</h1>
+      <h4>Listing every recipe in the database</h4>
+    </div>
+  </div>
+</header>
+<section id="content">
 <div class="row">
   <div class="large-12 columns">
-    <h1>Listing all Recipes</h1>
     <table>
       <tr>
         <th>Name</th>
@@ -12,6 +20,7 @@
       </tr>
       <% end %>
     </table>
-    <%= link_to "New Recipe", new_recipe_path, class: 'custom_button' %>
+    <%= link_to "New Recipe", new_recipe_path, class: 'orange-button' %>
   </div>
 </div>
+</section>

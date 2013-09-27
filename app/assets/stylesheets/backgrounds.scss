@@ -1,0 +1,8 @@
+@import "foundation_and_overrides";
+
+$light-orange: #FF8D40;
+
+header {
+  margin-bottom: emCalc(20);
+  background-color: $light-orange;
+}
