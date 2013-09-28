@@ -3,6 +3,9 @@ class Ingredient < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :unit
 
+  delegate :name, to: :foodstuff, prefix: true
+  delegate :name, to: :unit, prefix: true
+
   validates :quantity,
     presence: true,
     numericality: true,

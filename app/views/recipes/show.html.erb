@@ -21,9 +21,9 @@
         <tbody>
           <% @recipe.ingredients.each do |ingredient| %>
           <tr>
-            <td><%= ingredient.foodstuff.name %></td>
+            <td><%= ingredient.foodstuff_name %></td>
             <td><%= ingredient.quantity %></td>
-            <td><%= ingredient.unit.name %></td>
+            <td><%= ingredient.unit_name %></td>
           </tr>
           <% end %>
         </tbody>
