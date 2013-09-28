@@ -53,3 +53,5 @@ gem 'nested_form'
 group :test do
   gem 'shoulda'
 end
+
+gem 'dotenv-rails', :groups => [:development, :test]
