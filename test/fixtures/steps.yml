@@ -9,3 +9,13 @@ cutting:
   name: Cutting of carrots
   duration: 600
   recipe_id: 2
+
+waiting:
+  name: Waiting for something to happen
+  duration: 345
+  recipe_id: 1
+
+slicing:
+  name: Slicing onions
+  duration: 437
+  recipe_id: 2

@@ -16,6 +16,13 @@ foodstuffs = Foodstuff.create([
 units = Unit.create([
                       { name: 'Kilograms', abbreviation: "kg" },
                       { name: 'Liters', abbreviation: "l" },
-                      { name: 'grams', abbreviation: "g" },
-                      { name: 'units', abbreviation: "kpl" }
+                      { name: 'Grams', abbreviation: "g" },
+                      { name: 'Units', abbreviation: "kpl" }
+])
+
+categories = Category.create([
+  { name: 'Soup' },
+  { name: 'Dessert' },
+  { name: 'Salad' },
+  { name: 'Main' }
 ])

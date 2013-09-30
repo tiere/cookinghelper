@@ -10,7 +10,14 @@ class RecipeTest < ActiveSupport::TestCase
   should have_many(:steps)
   should have_many(:ingredients)
   should have_many(:foodstuffs).through(:ingredients)
+  should belong_to(:category)
 
   should validate_presence_of(:ingredients)
   should validate_presence_of(:steps)
+  should validate_presence_of(:category)
+
+  test "duration should return sum of steps duations in seconds" do
+    recipe = recipes(:carrotsoup)
+    assert_equal recipe.duration, 645
+  end
 end

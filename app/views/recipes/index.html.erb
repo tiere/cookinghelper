@@ -1,21 +1,20 @@
-<header>
-  <div class="row">
-    <div class="large-12 columns">
-      <h1>All Recipes</h1>
-      <h4>Listing every recipe in the database</h4>
-    </div>
-  </div>
-</header>
-<section id="content">
+<%= content_for :header do %>
+<h1>Showing recipes</h1>
+<h4>Listing every public recipe in the database</h4>
+<% end %>
 <div class="row">
   <div class="large-12 columns">
     <table>
       <tr>
         <th>Name</th>
+        <th>Category</th>
+        <th>Time to make</th>
       </tr>
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= link_to recipe.name, recipe %></td>
+        <td><%= recipe.category_name %></td>
+        <td><%= distance_of_time_in_words(recipe.duration) %></td>
         <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
       </tr>
       <% end %>
@@ -23,4 +22,3 @@
     <%= link_to "New Recipe", new_recipe_path, class: 'orange-button' %>
   </div>
 </div>
-</section>

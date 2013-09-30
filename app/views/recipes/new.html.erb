@@ -1,10 +1,6 @@
-<header>
-  <div class="row">
-    <div class="large-12 columns">
-      <h1>New recipe</h1>
-      <h4>You are creating a new recipe</h4>
-    </div>
-  </div>
-</header>
+<%= content_for :header do %>
+<h1>New recipe</h1>
+<h4>You are creating a new recipe</h4>
+<% end %>
 
 <%= render 'form', recipe: @recipe %>

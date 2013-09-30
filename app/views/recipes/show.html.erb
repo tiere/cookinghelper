@@ -1,11 +1,7 @@
-<header>
-  <div class="row">
-    <div class="large-12 columns">
-      <h1><%= @recipe.name %></h1>
-      <h4>Showing recipe for <%= @recipe.name %></h4>
-    </div>
-  </div>
-</header>
+<%= content_for :header do %>
+<h1><%= @recipe.name %></h1>
+<h4>Showing info for <%= @recipe.name %></h4>
+<% end %>
 <div class="row">
   <div class="large-12 columns">
     <div class="panel">
