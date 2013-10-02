@@ -6,43 +6,48 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-foodstuffs = Foodstuff.create([
+foodstuffs = Foodstuff.create!([
   { name: 'Tomato' },
   { name: 'Banana' },
   { name: 'Flour' },
   { name: 'Salt' }
 ])
 
-units = Unit.create([
+units = Unit.create!([
   { name: 'Kilograms', abbreviation: "kg" },
   { name: 'Liters', abbreviation: "l" },
   { name: 'Grams', abbreviation: "g" },
   { name: 'Units', abbreviation: "kpl" }
 ])
 
-categories = Category.create([
+categories = Category.create!([
   { name: 'Soup' },
   { name: 'Dessert' },
   { name: 'Salad' },
   { name: 'Main' }
 ])
 
-recipes = Recipe.create([
-  {
-    name: 'Cheese Cake', category: categories[1],
-    ingredients: [{ foodstuff: foodstuffs.first, quantity: 2, unit: units[3] }],
-    steps: [{ name: 'Boil', duration: 3600 }]
-  },
-  { name: 'Pasta Bolognese', category: categories[3] },
-  { name: 'Tuna salad', category: categories[2] }
-])
+recipe_names = [
+  'Cheese cake', 'Carrot pie', 'Roasted potato with sausages',
+  'Avocado salad', 'Bratwurst with mashed potatoes', 'Beef stew', 'Garlic metloaf',
+  'Vegetarian pasta', 'Chicken with rice', 'Mozzarella Pizza', 'Pasta Bolognese',
+  'Blue cheese pizza', 'Beef Jerky', 'Fish Sticks', 'Mashed Potatoes', 'Rice with curry',
+  'Vegetarian Hamburgers', 'Tuna Sandwich', 'Blueberry pie', 'Apple pie', 'Chicken Tortillas'
+]
 
-# ingredients = Ingredient.create([
-#   { recipe: recipes.first, foodstuff: foodstuffs.first, quantity: 2, unit: units[3] },
-#   { recipe: recipes.first, foodstuff: foodstuffs[1], quantity: 2, unit: units[3] }
-# ])
+recipe_names.each do |name|
+  steps = Step.create!([
+    { name: 'Boil water', duration: rand(60..3600) },
+    { name: 'Slice carrots', duration: rand(60..3600) },
+    { name: 'Peel potatoes', duration: rand(60..3600) }
+  ])
 
-# steps = Step.create([
-#   { name: 'Boil', recipe: recipes.first, duration: 3600},
-#   { name: 'Slice onions', recipe: recipes.first, duration: 625}
-# ])
+  ingredients = Ingredient.create!([
+    { quantity: 4, unit: units[rand(0..3)], foodstuff: foodstuffs[rand(0..3)] },
+    { quantity: 600, unit: units[rand(0..3)], foodstuff: foodstuffs[rand(0..3)] }
+  ])
+
+  Recipe.create!([
+    { name: name, steps: steps, ingredients: ingredients, category: categories[rand(0..3)] },
+  ])
+end
