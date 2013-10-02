@@ -1,0 +1,11 @@
+@import "foundation_and_overrides";
+
+$bg: #F2F2F2;
+$padding: emCalc(20);
+$adjust: true;
+$dark-orange: #F2C2C2;
+
+.form-panel {
+  @include panel($bg, $padding, $adjust);
+  box-shadow: 0px 4px 8px $dark-orange;
+}

@@ -1,9 +1,21 @@
 <div class="row">
-  <div class="large-6 columns">
-    <%= f.input :name, label: false, placeholder: 'Name for this step' %>
+  <div class="large-1 columns">
+    <%= f.label :name, class: 'right inline' %>
+  </div>
+  <div class="large-4 columns">
+    <%= f.text_field :name, placeholder: 'Name of the step' %>
+    <% if f.object.errors[:name].any? %>
+    <small class="error"><%= f.object.errors[:name].first %></small>
+    <% end %>
+  </div>
+  <div class="large-1 columns">
+    <%= f.label :duration, class: 'right inline' %>
   </div>
   <div class="large-3 columns">
-    <%= f.input :duration, label: false, placeholder: 'Duration (seconds)' %>
+    <%= f.text_field :duration, placeholder: 'Duration of this step' %>
+    <% if f.object.errors[:duration].any? %>
+    <small class="error"><%= f.object.errors[:duration].first %></small>
+    <% end %>
   </div>
   <div class="large-3 columns">
     <%= f.link_to_remove "Remove this step", class: "remove-button prefix" %>
