@@ -20,4 +20,17 @@ class Recipe < ActiveRecord::Base
   def duration
     self.steps.sum('duration')
   end
+
+  def progress_bar_width
+    case self.duration
+    when 60..900
+      return 20
+    when 901..2000
+      return 50
+    when 2001..6000
+      return 80
+    else
+      return 100
+    end
+  end
 end

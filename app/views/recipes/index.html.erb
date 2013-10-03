@@ -8,13 +8,20 @@
       <tr>
         <th>Name</th>
         <th>Category</th>
-        <th>Time to make</th>
+        <th width= "400">Time to make</th>
       </tr>
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= link_to recipe.name, recipe %></td>
         <td><%= recipe.category_name %></td>
-        <td><%= distance_of_time_in_words(recipe.duration) %></td>
+        <td>
+              <div class="large-4 columns">
+                <%= distance_of_time_in_words(recipe.duration) %>
+              </div>
+              <div class="progress large-8 columns">
+                <span class="meter" style="width: <%= recipe.progress_bar_width %>%"></span>
+              </div>
+        </td>
         <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
       </tr>
       <% end %>
