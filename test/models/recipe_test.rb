@@ -28,7 +28,7 @@ class RecipeTest < ActiveSupport::TestCase
 
   test "progress_bar_width should return correct value" do
     recipe = recipes(:carrotsoup)
-    assert_equal recipe.progress_bar_width, 20
+    assert_equal recipe.progress_bar_width, 30
 
     recipe = recipes(:fishsticks)
     assert_equal recipe.progress_bar_width, 50
