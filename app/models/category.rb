@@ -4,5 +4,5 @@ class Category < ActiveRecord::Base
   validates :name,
     presence: true,
     length: { minimum: 2, maximum: 60 },
-    format: { with: /\A[a-zA-Z ]+\z/ }
+    format: { with: /\A[a-zA-Z ]+\z/, message: "can only contain letters" }
 end

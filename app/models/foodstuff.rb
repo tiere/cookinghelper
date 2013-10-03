@@ -6,5 +6,5 @@ class Foodstuff < ActiveRecord::Base
     presence: true,
     length: { minimum: 2, maximum: 30 },
     uniqueness: true,
-    format: { with: /\A[a-zA-Z]+\z/ }
+    format: { with: /\A[a-zA-Z]+\z/, message: 'can only contain letters' }
 end

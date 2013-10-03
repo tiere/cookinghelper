@@ -2,7 +2,6 @@
 
 $active: true;
 $orange: #FF6700;
-$green: #21A133;
 $reddish: #BB413D;
 
 .orange-button {
@@ -13,12 +12,22 @@ $reddish: #BB413D;
   @include inset-shadow($active);
 }
 
-.small-green-button {
+.submit-button {
+  @include button-base;
+  @include button-size;
+  @include button-style($orange);
+  @include single-transition;
+  @include inset-shadow($active);
+  margin: 0;
+}
+
+.small-orange-button {
   @include button-base;
   @include button-size($button-sml);
   @include button-style($orange);
   @include single-transition;
   @include inset-shadow($active);
+  margin: 0;
 }
 
 .remove-button {
