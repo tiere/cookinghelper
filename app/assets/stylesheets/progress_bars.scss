@@ -1,0 +1,31 @@
+@import "foundation_and_overrides";
+
+$green: #A0F516;
+$yellow: #EAC65C;
+$orange: #F48C1D;
+$red: #F94222;
+
+@mixin progress-custom($color) {
+  @include progress-container;
+  @include radius(8px);
+  & > span {
+    @include progress-meter($color);
+    @include radius(7px);
+  }
+}
+
+.progress-green {
+  @include progress-custom($green);
+}
+
+.progress-yellow {
+  @include progress-custom($yellow)
+}
+
+.progress-orange {
+  @include progress-custom($orange)
+}
+
+.progress-red {
+  @include progress-custom($red)
+}

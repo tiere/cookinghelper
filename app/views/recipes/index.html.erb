@@ -15,12 +15,14 @@
         <td><%= link_to recipe.name, recipe %></td>
         <td><%= recipe.category_name %></td>
         <td>
-              <div class="large-4 columns">
-                <%= distance_of_time_in_words(recipe.duration) %>
-              </div>
-              <div class="progress large-8 columns">
-                <span class="meter" style="width: <%= recipe.progress_bar_width %>%"></span>
-              </div>
+          <div class="large-4 columns">
+            <%= distance_of_time_in_words(recipe.duration_to_s) %>
+          </div>
+          <div class="large-8 columns">
+            <div class="<%= recipe.progress_bar_class %>">
+              <span class="meter" style="width: <%= recipe.progress_bar_width %>%"></span>
+            </div>
+          </div>
         </td>
         <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
       </tr>

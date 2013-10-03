@@ -16,16 +16,21 @@ class RecipeTest < ActiveSupport::TestCase
   should validate_presence_of(:steps)
   should validate_presence_of(:category)
 
-  test "duration should return sum of steps duations in seconds" do
+  test "duration_to_s should return sum of steps duations in seconds" do
     recipe = recipes(:carrotsoup)
-    assert_equal recipe.duration, 645
+    assert_equal recipe.duration_to_s, 645
+  end
+
+  test "duration_to_m should return sum of steps duations in minutes" do
+    recipe = recipes(:carrotsoup)
+    assert_equal recipe.duration_to_m, 10
   end
 
   test "progress_bar_width should return correct value" do
     recipe = recipes(:carrotsoup)
-    assert_equal recipe.progress_bar_width, 80
+    assert_equal recipe.progress_bar_width, 20
 
     recipe = recipes(:fishsticks)
-    assert_equal recipe.progress_bar_width, 100
+    assert_equal recipe.progress_bar_width, 50
   end
 end

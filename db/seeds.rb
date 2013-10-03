@@ -37,9 +37,9 @@ recipe_names = [
 
 recipe_names.each do |name|
   steps = Step.create!([
-    { name: 'Boil water', duration: rand(60..3600) },
-    { name: 'Slice carrots', duration: rand(60..3600) },
-    { name: 'Peel potatoes', duration: rand(60..3600) }
+    { name: 'Boil water', duration: rand(60..900) },
+    { name: 'Slice carrots', duration: rand(60..900) },
+    { name: 'Peel potatoes', duration: rand(60..900) }
   ])
 
   ingredients = Ingredient.create!([

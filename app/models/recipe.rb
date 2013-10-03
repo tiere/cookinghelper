@@ -17,20 +17,37 @@ class Recipe < ActiveRecord::Base
   validates_associated :steps, :ingredients
   validates :steps, :ingredients, :category, presence: true
 
-  def duration
+  def duration_to_s
     self.steps.sum('duration')
   end
 
+  def duration_to_m
+    self.steps.sum('duration')/60
+  end
+
   def progress_bar_width
-    case self.duration
-    when 60..900
-      return 20
-    when 901..2000
+    case self.duration_to_m
+    when 1..15
+      return 30
+    when 16..30
       return 50
-    when 2001..6000
+    when 31..60
       return 80
     else
       return 100
+    end
+  end
+
+  def progress_bar_class
+    case self.progress_bar_width
+    when 30
+      return 'progress-green'
+    when 50
+      return 'progress-yellow'
+    when 80
+        return 'progress-orange'
+    else
+      return 'progress-red'
     end
   end
 end

@@ -1,13 +1,12 @@
 @import "foundation_and_overrides";
 
 $active: true;
-$orange: #FF6700;
 $reddish: #BB413D;
 
 .orange-button {
   @include button-base;
   @include button-size;
-  @include button-style($orange);
+  @include button-style($primary-color);
   @include single-transition;
   @include inset-shadow($active);
 }
@@ -15,7 +14,7 @@ $reddish: #BB413D;
 .submit-button {
   @include button-base;
   @include button-size;
-  @include button-style($orange);
+  @include button-style($primary-color);
   @include single-transition;
   @include inset-shadow($active);
   margin: 0;
@@ -24,7 +23,7 @@ $reddish: #BB413D;
 .small-orange-button {
   @include button-base;
   @include button-size($button-sml);
-  @include button-style($orange);
+  @include button-style($primary-color);
   @include single-transition;
   @include inset-shadow($active);
   margin: 0;

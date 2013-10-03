@@ -67,10 +67,11 @@ $default-float: left;
 
 // Colors
 
-// $primary-color: #2ba6cb;
-// $secondary-color: #e9e9e9;
-// $alert-color: #c60f13;
-// $success-color: #5da423;
+$primary-color: #FF6700;
+$primary-light: #FF8D40;
+$secondary-color: #FFAB73;
+$alert-color: #C66567;
+$success-color: #5DA423;
 
 // Make sure border radius matches unless we want it different.
 
@@ -974,7 +975,7 @@ $default-float: left;
 // We use these to control the margin & padding
 
 // $progress-bar-pad: emCalc(2);
-// $progress-bar-margin-bottom: emCalc(10);
+$progress-bar-margin-bottom: emCalc(0);
 
 // We use these to set the meter colors
 
