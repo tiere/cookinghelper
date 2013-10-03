@@ -12,7 +12,7 @@
     <%= f.label :duration, class: 'right inline' %>
   </div>
   <div class="large-3 columns">
-    <%= f.text_field :duration, placeholder: 'Duration of this step' %>
+    <%= f.text_field :duration_m %>
     <% if f.object.errors[:duration].any? %>
     <small class="error"><%= f.object.errors[:duration].first %></small>
     <% end %>

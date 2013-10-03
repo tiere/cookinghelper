@@ -10,4 +10,12 @@ class Step < ActiveRecord::Base
     presence: true,
     numericality: { only_integer: true },
     inclusion: { in: 60..86400, message: 'must be between 60 and 86400' }
+
+  def duration_m
+    self.duration.to_i / 60
+  end
+
+  def duration_m=(duration)
+    self.duration = duration.to_i * 60
+  end
 end
