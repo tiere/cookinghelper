@@ -29,7 +29,7 @@ categories = Category.create!([
 
 recipe_names = [
   'Cheese cake', 'Carrot pie', 'Roasted potato with sausages',
-  'Avocado salad', 'Bratwurst with mashed potatoes', 'Beef stew', 'Garlic metloaf',
+  'Avocado salad', 'Bratwurst with mashed potatoes', 'Beef stew', 'Garlic meatloaf',
   'Vegetarian pasta', 'Chicken with rice', 'Mozzarella Pizza', 'Pasta Bolognese',
   'Blue cheese pizza', 'Beef Jerky', 'Fish Sticks', 'Mashed Potatoes', 'Rice with curry',
   'Vegetarian Hamburgers', 'Tuna Sandwich', 'Blueberry pie', 'Apple pie', 'Chicken Tortillas'
