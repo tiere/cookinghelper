@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
       :name,
       :category_id,
       ingredient_ids: [],
-      steps_attributes: [:id, :name, :duration, :_destroy],
+      steps_attributes: [:id, :name, :_destroy, :duration_h, :duration_m, :duration_s],
       ingredients_attributes: [:id, :quantity, :foodstuff_id, :unit_id, :recipe_id, :_destroy]
     )
   end

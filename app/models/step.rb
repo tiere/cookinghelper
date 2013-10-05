@@ -9,29 +9,39 @@ class Step < ActiveRecord::Base
   validates :duration,
     presence: true,
     numericality: { only_integer: true },
-    inclusion: { in: 60..86400, message: 'must be between 60 and 86400' }
-
-  # def duration_h
-  #   case self
-  # end
+    inclusion: { in: 60..86400, message: 'must be between 1 minute and 24 hours' }
 
   def duration_s
     self.duration.to_i.divmod(60)[1]
   end
 
   def duration_m
-    self.duration_s.to_i.divmod(60)[1]
+    self.duration.to_i.divmod(60)[0].divmod(60)[1]
   end
 
   def duration_h
-    self.duration_m.to_i.divmod(60)[0]
+    self.duration.to_i.divmod(60)[0].divmod(60)[0].divmod(60)[1]
+  end
+
+  def duration_s=(duration)
+    @duration_s = duration.to_i
   end
 
   def duration_m=(duration)
-    self.duration += (duration.to_i * 60)
+    @duration_m = duration.to_i
   end
 
   def duration_h=(duration)
-    self.duration += (duration.to_i * 60 * 60)
+    @duration_h = duration.to_i
   end
+
+  def sum_durations
+    hours = @duration_h * 60 * 60
+    minutes = @duration_m * 60
+    seconds = @duration_s
+
+    self.duration = hours + minutes + seconds
+  end
+
+  before_validation :sum_durations
 end
