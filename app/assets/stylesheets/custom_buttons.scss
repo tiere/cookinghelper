@@ -1,38 +1,35 @@
-$active: true;
 $reddish: #BB413D;
+$radius: true;
+$active: true;
 
-.orange-button {
+@mixin custom-button($color, $size: $button-med) {
   @include button-base;
-  @include button-size;
-  @include button-style($primary-color);
+  @include button-size($size);
+  @include button-style($color, $radius);
   @include single-transition;
   @include inset-shadow($active);
+}
+
+.orange-button {
+  @include custom-button($primary-color)
 }
 
 .submit-button {
-  @include button-base;
-  @include button-size;
-  @include button-style($primary-color);
-  @include single-transition;
-  @include inset-shadow($active);
-  margin: 0;
+  @include custom-button($primary-color);
+  margin: 0
 }
 
 .small-orange-button {
-  @include button-base;
-  @include button-size($button-sml);
-  @include button-style($primary-color);
-  @include single-transition;
-  @include inset-shadow($active);
-  margin: 0;
+  @include custom-button($primary-color, $button-sml);
+  margin: 0
 }
 
 .remove-button {
-  @include button-base;
-  @include button-size($button-sml);
-  @include button-style($reddish);
-  @include single-transition;
-  @include inset-shadow($active);
+  @include custom-button($reddish, $button-sml)
+}
+
+.back-button {
+  @include custom-button($secondary-color)
 }
 
 .right {
