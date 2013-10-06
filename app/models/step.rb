@@ -11,37 +11,83 @@ class Step < ActiveRecord::Base
     numericality: { only_integer: true },
     inclusion: { in: 60..86400, message: 'must be between 1 minute and 24 hours' }
 
-  def duration_s
-    self.duration.to_i.divmod(60)[1]
+  def duration_h
+    self.duration.to_i.divmod(60)[0].divmod(60)[0].divmod(60)[1]
   end
 
   def duration_m
     self.duration.to_i.divmod(60)[0].divmod(60)[1]
   end
 
-  def duration_h
-    self.duration.to_i.divmod(60)[0].divmod(60)[0].divmod(60)[1]
-  end
-
-  def duration_s=(duration)
-    @duration_s = duration.to_i
-  end
-
-  def duration_m=(duration)
-    @duration_m = duration.to_i
+  def duration_s
+    self.duration.to_i.divmod(60)[1]
   end
 
   def duration_h=(duration)
-    @duration_h = duration.to_i
+    @duration_h = duration
+  end
+
+  def duration_m=(duration)
+    @duration_m = duration
+  end
+
+  def duration_s=(duration)
+    @duration_s = duration
   end
 
   def sum_durations
-    hours = @duration_h * 60 * 60
-    minutes = @duration_m * 60
-    seconds = @duration_s
+    hours = @duration_h.to_i * 60 * 60
+    minutes = @duration_m.to_i * 60
+    seconds = @duration_s.to_i
 
     self.duration = hours + minutes + seconds
   end
 
-  before_validation :sum_durations
+  before_validation do
+    if hour_is_valid? && minute_is_valid? && second_is_valid?
+      sum_durations
+    end
+  end
+
+  def hour_is_valid?
+    begin
+      if !Integer(@duration_h).between?(0, 24)
+        errors.add(:duration_h, "must be between 1 and 24")
+        false
+      else
+        true
+      end
+    rescue ArgumentError
+      errors.add(:duration_h, 'must be an integer')
+      false
+    end
+  end
+
+  def minute_is_valid?
+    begin
+      if !Integer(@duration_m).between?(0, 59)
+        errors.add(:duration_m, "must be between 1 and 59")
+        false
+      else
+        true
+      end
+    rescue ArgumentError
+      errors.add(:duration_m, 'must be an integer')
+      false
+    end
+  end
+
+  def second_is_valid?
+    begin
+      if !Integer(@duration_s).between?(0, 59)
+        errors.add(:duration_s, "must be between 1 and 59")
+        false
+      else
+        true
+      end
+    rescue ArgumentError
+      errors.add(:duration_s, 'must be an integer')
+      false
+    end
+  end
 end

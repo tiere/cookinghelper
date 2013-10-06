@@ -2,7 +2,7 @@
 
 boiling:
   name: Boiling of potatoes
-  duration: 300
+  duration: 700
   recipe_id: 1
 
 cutting:
