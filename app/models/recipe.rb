@@ -22,7 +22,7 @@ class Recipe < ActiveRecord::Base
   end
 
   def duration_to_m
-    self.steps.sum('duration')/60
+    self.steps.sum('duration') / 60
   end
 
   def progress_bar_width

@@ -14,5 +14,20 @@ class StepTest < ActiveSupport::TestCase
   should_not allow_value('three').for(:duration)
   should allow_value(3600).for(:duration)
 
+  should validate_numericality_of(:duration_h)
+  should ensure_inclusion_of(:duration_h).in_range(0..24).with_message('must be between 0 and 24')
+  should_not allow_value('pikajuna').for(:duration_h)
+  should allow_value(12).for(:duration_h)
+
+  should validate_numericality_of(:duration_m)
+  should ensure_inclusion_of(:duration_m).in_range(0..59).with_message('must be between 0 and 59')
+  should_not allow_value('kolkytminuuttia').for(:duration_m)
+  should allow_value(43).for(:duration_m)
+
+  should validate_numericality_of(:duration_s)
+  should ensure_inclusion_of(:duration_s).in_range(0..59).with_message('must be between 0 and 59')
+  should_not allow_value('5 sekuntia').for(:duration_s)
+  should allow_value(5).for(:duration_s)
+
   should belong_to(:recipe)
 end

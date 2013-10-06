@@ -44,7 +44,16 @@ class Step < ActiveRecord::Base
   end
 
   before_validation do
-    if hour_is_valid? && minute_is_valid? && second_is_valid?
+    valid = false
+    if !@duration_h.nil?
+      valid = hour_is_valid?
+    elsif !@duration_m.nil?
+      valid = minute_is_valid?
+    elsif !@duration_s.nil?
+      valid = second_is_valid?
+    end
+
+    if valid
       sum_durations
     end
   end
@@ -52,13 +61,13 @@ class Step < ActiveRecord::Base
   def hour_is_valid?
     begin
       if !Integer(@duration_h).between?(0, 24)
-        errors.add(:duration_h, "must be between 1 and 24")
+        errors.add(:duration_h, "must be between 0 and 24")
         false
       else
         true
       end
     rescue ArgumentError
-      errors.add(:duration_h, 'must be an integer')
+      errors.add(:duration_h, 'is not a number')
       false
     end
   end
@@ -66,13 +75,13 @@ class Step < ActiveRecord::Base
   def minute_is_valid?
     begin
       if !Integer(@duration_m).between?(0, 59)
-        errors.add(:duration_m, "must be between 1 and 59")
+        errors.add(:duration_m, "must be between 0 and 59")
         false
       else
         true
       end
     rescue ArgumentError
-      errors.add(:duration_m, 'must be an integer')
+      errors.add(:duration_m, 'is not a number')
       false
     end
   end
@@ -80,13 +89,13 @@ class Step < ActiveRecord::Base
   def second_is_valid?
     begin
       if !Integer(@duration_s).between?(0, 59)
-        errors.add(:duration_s, "must be between 1 and 59")
+        errors.add(:duration_s, "must be between 0 and 59")
         false
       else
         true
       end
     rescue ArgumentError
-      errors.add(:duration_s, 'must be an integer')
+      errors.add(:duration_s, 'is not a number')
       false
     end
   end
