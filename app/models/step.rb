@@ -24,14 +24,26 @@ class Step < ActiveRecord::Base
   end
 
   def duration_h=(duration)
+    if duration == ''
+      duration = 0
+    end
+
     @duration_h = duration
   end
 
   def duration_m=(duration)
+    if duration == ''
+      duration = 0
+    end
+
     @duration_m = duration
   end
 
   def duration_s=(duration)
+    if duration == ''
+      duration = 0
+    end
+
     @duration_s = duration
   end
 
