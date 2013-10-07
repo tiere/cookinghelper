@@ -1,37 +1,17 @@
 <div class="row">
-  <div class="large-1 columns">
-    <%= f.label :name, class: 'right inline' %>
-  </div>
-  <div class="large-4 columns">
-    <%= f.text_field :name, placeholder: 'Name of the step' %>
-    <% if f.object.errors[:name].any? %>
-    <small class="error"><%= f.object.errors[:name].first %></small>
-    <% end %>
+  <div class="large-6 columns">
+    <%= f.input :name, placeholder: 'Name of the step' %>
   </div>
   <div class="large-1 columns">
-    <%= f.label :duration, class: 'right inline' %>
+    <%= f.input :duration_h, label: 'Hours', placeholder: 'hh' %>
   </div>
   <div class="large-1 columns">
-    <%= f.text_field :duration_h %>
-    <% if f.object.errors[:duration_h].any? %>
-    <small class="error"><%= f.object.errors[:duration_h].first %></small>
-    <% elsif f.object.errors[:duration].any? %>
-    <small class="error"><%= f.object.errors[:duration].first %></small>
-    <% end %>
+    <%= f.input :duration_m, label: 'Minutes', placeholder: 'mm' %>
   </div>
   <div class="large-1 columns">
-    <%= f.text_field :duration_m %>
-    <% if f.object.errors[:duration_m].any? %>
-    <small class="error"><%= f.object.errors[:duration_m].first %></small>
-    <% end %>
-  </div>
-  <div class="large-1 columns">
-    <%= f.text_field :duration_s %>
-    <% if f.object.errors[:duration_s].any? %>
-    <small class="error"><%= f.object.errors[:duration_s].first %></small>
-    <% end %>
+    <%= f.input :duration_s, label: 'Seconds', placeholder: 'ss' %>
   </div>
   <div class="large-3 columns">
-    <%= f.link_to_remove "Remove this step", class: "remove-button prefix" %>
+    <%= f.link_to_remove "Remove this step", class: "remove-button postfix" %>
   </div>
 </div>

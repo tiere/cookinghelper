@@ -8,7 +8,7 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
     b.use :label_input
-    b.use :error, wrap_with: { tag: :small }
+    b.use :error, wrap_with: { tag: :small, class: 'error' }
 
     # Uncomment the following line to enable hints. The line is commented out by default since Foundation
     # does't provide styles for hints. You will need to provide your own CSS styles for hints.
@@ -16,7 +16,7 @@ SimpleForm.setup do |config|
   end
 
   # CSS class for buttons
-  config.button_class = 'button'
+  config.button_class = 'submit-button'
 
   # CSS class to add for error notification helper.
   config.error_notification_class = 'alert-box alert'

@@ -70,7 +70,7 @@ $default-float: left;
 $primary-color: #FF6700;
 $primary-light: #FF8D40;
 $secondary-color: #FFAB73;
-$alert-color: #C66567;
+// $alert-color: #C66567;
 $success-color: #5DA423;
 
 // Make sure border radius matches unless we want it different.
@@ -328,7 +328,7 @@ $success-color: #5DA423;
 // We use these to style the error states for inputs and labels
 
 // $input-error-message-padding: emCalc(6, 4);
-// $input-error-message-top: 0;
+$input-error-message-top: 0;
 // $input-error-message-font-size: emCalc(12);
 // $input-error-message-font-weight: bold;
 // $input-error-message-font-color: #fff;

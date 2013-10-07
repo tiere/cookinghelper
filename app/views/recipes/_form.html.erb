@@ -1,31 +1,22 @@
 <div class="row">
   <div class="large-12 columns">
-    <%= nested_form_for recipe do |f| %>
+    <%= simple_nested_form_for recipe do |f| %>
     <fieldset>
       <legend>Recipe</legend>
       <div class="row">
-        <div class="large-1 columns">
-          <%= f.label :name, class: 'right inline' %>
+        <div class="large-6 columns">
+          <%= f.input :name, placeholder: 'Name of the recipe' %>
         </div>
-        <div class="large-5 columns">
-          <%= f.text_field :name, placeholder: "Name of your recipe" %>
-          <% if recipe.errors[:name].any? %>
-          <small class="error"><%= recipe.errors[:name].first %></small>
-          <% end %>
-        </div>
-        <div class="large-1 columns">
-          <%= f.label :category, class: 'right inline' %>
-        </div>
-        <div class="large-5 columns">
-          <%= f.collection_select :category_id, Category.all, :id, :name %>
+        <div class="large-6 columns">
+          <%= f.association :category, prompt: 'Select category' %>
         </div>
       </div>
       <div class="row">
         <div class="large-12 columns">
           <fieldset>
             <legend>Ingredients</legend>
-            <%= f.fields_for :ingredients %>
-            <%= f.link_to_add "Add an ingredient", :ingredients, class: "small-orange-button" %>
+            <%= f.simple_fields_for :ingredients %>
+            <%= f.link_to_add "Add an ingredient", :ingredients, class: 'small-orange-button' %>
           </fieldset>
         </div>
       </div>
@@ -33,20 +24,20 @@
         <div class="large-12 columns">
           <fieldset>
             <legend>Steps</legend>
-            <%= f.fields_for :steps %>
-            <%= f.link_to_add "Add a step", :steps, class: "small-orange-button" %>
+            <%= f.simple_fields_for :steps %>
+            <%= f.link_to_add 'Add a step', :steps, class: 'small-orange-button' %>
           </fieldset>
         </div>
       </div>
       <div class="row">
         <div class="large-12 columns">
-          <%= f.submit 'Save recipe', class: 'submit-button right' %>
+          <%= f.button :submit %>
         </div>
       </div>
     </fieldset>
     <% end %>
     <div class="row">
-      <div class="large-12 columns">
+      <div class="large-3 columns">
         <%= link_to 'Back to recipes', recipes_path, class: 'back-button' %>
       </div>
     </div>

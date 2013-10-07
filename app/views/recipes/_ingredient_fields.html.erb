@@ -1,24 +1,12 @@
 <div class="row">
-  <div class="large-1 columns">
-    <%= f.label :foodstuff, class: 'right inline' %>
+  <div class="large-3 columns">
+    <%= f.association :foodstuff, prompt: 'Select foodstuff' %>
   </div>
-  <div class="large-2 columns">
-    <%= f.collection_select :foodstuff_id, Foodstuff.all, :id, :name %>
+  <div class="large-3 columns">
+    <%= f.input :quantity, placeholder: 'Quantity of ingredient' %>
   </div>
-  <div class="large-1 columns">
-    <%= f.label :quantity, class: 'right inline' %>
-  </div>
-  <div class="large-2 columns">
-    <%= f.text_field :quantity, placeholder: 'Quantity of ingredient' %>
-    <% if f.object.errors[:quantity].any? %>
-    <small class="error"><%= f.object.errors[:quantity].first %></small>
-    <% end %>
-  </div>
-  <div class="large-1 columns">
-    <%= f.label :unit, class: 'right inline' %>
-  </div>
-  <div class="large-2 columns">
-    <%= f.collection_select :unit_id, Unit.all, :id, :name %>
+  <div class="large-3 columns">
+    <%= f.association :unit, prompt: 'Select unit' %>
   </div>
   <div class="large-3 columns">
     <%= f.link_to_remove "Remove this ingredient", class: "remove-button prefix" %>
