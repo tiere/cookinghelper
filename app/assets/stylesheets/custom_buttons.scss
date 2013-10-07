@@ -26,7 +26,6 @@ $active: true;
 
 .remove-button {
   @include custom-button($reddish, $button-sml);
-  margin-top: emCalc(22);
 }
 
 .back-button {

@@ -5,10 +5,19 @@
   <div class="large-3 columns">
     <%= f.input :quantity, placeholder: 'Quantity of ingredient' %>
   </div>
-  <div class="large-3 columns">
-    <%= f.association :unit, prompt: 'Select unit' %>
-  </div>
-  <div class="large-3 columns">
-    <%= f.link_to_remove "Remove this ingredient", class: "remove-button prefix" %>
+  <div class="large-6 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.label :unit %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.association :unit, label: false, prompt: 'Select unit' %>
+      </div>
+      <div class="large-6 columns">
+        <%= f.link_to_remove "Remove this ingredient", class: "remove-button postfix" %>
+      </div>
+    </div>
   </div>
 </div>

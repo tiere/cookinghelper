@@ -2,16 +2,25 @@
   <div class="large-6 columns">
     <%= f.input :name, placeholder: 'Name of the step' %>
   </div>
-  <div class="large-1 columns">
-    <%= f.input :duration_h, label: 'Hours', placeholder: 'hh' %>
-  </div>
-  <div class="large-1 columns">
-    <%= f.input :duration_m, label: 'Minutes', placeholder: 'mm' %>
-  </div>
-  <div class="large-1 columns">
-    <%= f.input :duration_s, label: 'Seconds', placeholder: 'ss' %>
-  </div>
-  <div class="large-3 columns">
-    <%= f.link_to_remove "Remove this step", class: "remove-button postfix" %>
+  <div class="large-6 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.label :duration %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.input :duration_h, as: :integer, label: false, required: true, placeholder: 'hh' %>
+      </div>
+      <div class="large-2 columns">
+        <%= f.input :duration_m, as: :integer, label: false, required: true, placeholder: 'mm' %>
+      </div>
+      <div class="large-2 columns">
+        <%= f.input :duration_s, as: :integer, label: false, required: true, placeholder: 'ss' %>
+      </div>
+      <div class="large-6 columns">
+        <%= f.link_to_remove "Remove this step", class: "remove-button postfix" %>
+      </div>
+    </div>
   </div>
 </div>

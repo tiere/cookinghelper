@@ -12,15 +12,15 @@ class Step < ActiveRecord::Base
     inclusion: { in: 60..86400, message: 'must be between 1 minute and 24 hours' }
 
   def duration_h
-    self.duration.to_i.divmod(60)[0].divmod(60)[0].divmod(60)[1]
+    self.duration.to_i.divmod(60)[0].divmod(60)[0].divmod(60)[1] unless self.duration.nil?
   end
 
   def duration_m
-    self.duration.to_i.divmod(60)[0].divmod(60)[1]
+    self.duration.to_i.divmod(60)[0].divmod(60)[1] unless self.duration.nil?
   end
 
   def duration_s
-    self.duration.to_i.divmod(60)[1]
+    self.duration.to_i.divmod(60)[1] unless self.duration.nil?
   end
 
   def duration_h=(duration)
