@@ -52,6 +52,8 @@ gem 'simple_form'
 
 gem 'nested_form'
 
+gem 'figaro'
+
 group :test do
   gem 'shoulda'
 end
