@@ -58,8 +58,6 @@ group :test do
   gem 'shoulda'
 end
 
-gem 'dotenv-rails', :groups => [:development, :test]
-
 group :production do
   gem 'rails_12factor', '0.0.2'
 end

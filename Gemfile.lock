@@ -35,9 +35,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    dotenv (0.9.0)
-    dotenv-rails (0.9.0)
-      dotenv (= 0.9.0)
     erubis (2.7.0)
     execjs (2.0.1)
     figaro (0.7.0)
@@ -130,7 +127,6 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  dotenv-rails
   figaro
   jbuilder (~> 1.2)
   jquery-rails
