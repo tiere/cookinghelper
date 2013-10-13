@@ -15,47 +15,17 @@
 
   <title><%= full_title(yield(:title)) %></title>
 
-  <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "vendor/custom.modernizr", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-
 <body>
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Cooking Helper</a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-    <section class="top-bar-section">
-      <ul class="right">
-        <li class="divider"></li>
-        <li><%= link_to "Recipes", recipes_path %></li>
-        <li class="divider"></li>
-      </ul>
-    </section>
-  </nav>
-  <header>
-    <div class="row">
-      <div class="large-12 columns">
-
-        <%= yield :header %>
-
-      </div>
-    </div>
-  </header>
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/header' %>
   <section id="content">
-
     <%= yield %>
-
   </section>
-  <footer>
-    <div class="row">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, ullam, perferendis, eos, nobis rerum vitae maiores expedita voluptate voluptates corporis architecto illo culpa facilis! Ipsa, eius nobis aperiam perferendis deserunt!</p>
-    </div>
-  </footer>
-
+  <%= render 'layouts/footer' %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
