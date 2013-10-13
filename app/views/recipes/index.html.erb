@@ -24,10 +24,10 @@
             </div>
           </div>
         </td>
-        <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
+        <td data-no-turbolink><%= link_to "Edit", edit_recipe_path(recipe) %></td>
       </tr>
       <% end %>
     </table>
-    <%= link_to "New Recipe", new_recipe_path, class: 'orange-button' %>
+    <%= link_to "New Recipe", new_recipe_path, class: 'orange-button', data: { no_turbolink: true } %>
   </div>
 </div>

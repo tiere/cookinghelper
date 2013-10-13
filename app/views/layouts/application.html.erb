@@ -15,8 +15,8 @@
 
   <title>Cooking Helper | <%= yield(:title) %></title>
 
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "vendor/custom.modernizr", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -56,6 +56,6 @@
     </div>
   </footer>
 
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
