@@ -1,5 +1,6 @@
 $dark-orange: #803300;
-$dark: #333;
+$dark: #333333;
+$white: #FFFFFF;
 
 header {
   background: rgb(255,179,104); /* Old browsers */
@@ -15,22 +16,14 @@ header {
   box-shadow: 0px 4px 8px $dark-orange;
 
   h1, h4 {
-    color: #FFF;
+    color: $white;
   }
 }
 
 footer {
-  background: rgb(0,0,0); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(69,72,77,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(69,72,77,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(69,72,77,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(69,72,77,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(69,72,77,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(69,72,77,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#45484d',GradientType=0 ); /* IE6-9 */
-
   padding-top: emCalc(20);
   padding-left: emCalc(20);
   padding-right: emCalc(20);
-  color: #FFFFFF;
+  color: $white;
+  background: $dark;
 }
