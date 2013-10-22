@@ -17,11 +17,11 @@ describe "Authentication" do
       before { click_button "Sign in" }
 
       it { should have_title('Sign in') }
-      it { should have_selector('div.alert-box.alert', text: 'Invalid') }
+      it { should have_error_message 'Invalid' }
 
       describe "when visiting a new page" do
         before { click_link "Home" }
-        it { should_not have_selector('div.alert-box.alert') }
+        it { should_not have_error_message }
       end
     end
 
@@ -29,9 +29,7 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
 
       before do
-        fill_in "Email", with: user.email.upcase
-        fill_in "Password", with: user.password
-        click_button "Sign in"
+        sign_in(user)
       end
 
       it { should have_title(user.name) }

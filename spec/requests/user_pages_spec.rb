@@ -32,7 +32,7 @@ describe "User pages" do
         before { click_button submit }
 
         it { should have_title('Sign up') }
-        it { should have_selector('small', text: "can't be blank") }
+        it { should have_field_error "can't be blank" }
       end
     end
 
@@ -54,8 +54,7 @@ describe "User pages" do
 
         it { should have_link('Sign out') }
         it { should have_title(user.name) }
-        it { should have_selector('div.alert-box.success',
-                                  text: 'Account successfully created') }
+        it { should have_success_message 'Account successfully created' }
       end
     end
   end
