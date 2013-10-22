@@ -1,7 +1,10 @@
 Cookinghelper::Application.routes.draw do
   root 'home#index'
   match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match 'signout', to: 'sessions#destroy', via: 'delete'
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   resources :recipes, except: [:destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
