@@ -1,7 +1,7 @@
 Cookinghelper::Application.routes.draw do
   root 'home#index'
-  get "users/new"
   match '/signup', to: 'users#new', via: 'get'
+  resources :users
   resources :recipes, except: [:destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

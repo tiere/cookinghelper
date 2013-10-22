@@ -23,6 +23,16 @@
   <%= render 'layouts/nav' %>
   <%= render 'layouts/header' %>
   <section id="content">
+    <div class="row">
+      <div class="large-12 columns">
+        <% flash.each do |key, value| %>
+        <div class="alert-box <%= key %>">
+          <%= value %>
+          <a href="#" class="close">&times;</a>
+        </div>
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
   </section>
   <%= render 'layouts/footer' %>

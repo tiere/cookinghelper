@@ -1,5 +1,6 @@
 <%= provide(:title, 'Sign up') %>
 <%= content_for :header do %>
-<h1>Sign up</h1>
+<h2>Sign up</h2>
 <h4>Register a new account</h4>
 <% end %>
+<%= render 'form', user: @user %>

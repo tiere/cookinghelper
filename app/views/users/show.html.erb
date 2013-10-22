@@ -1,0 +1,15 @@
+<%= provide(:title, @user.name) %>
+<%= content_for :header do %>
+<h2>Profile for <%= @user.name %></h2>
+<h4>Showing your profile</h4>
+<% end -%>
+<div class="row">
+  <div class="large-12 columns">
+    <%= gravatar_for @user %>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <p>email: <%= @user.email %></p>
+  </div>
+</div>
