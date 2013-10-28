@@ -1,0 +1,12 @@
+<% provide(:title, "All users") %>
+<%= content_for :header do %>
+<h2>All users</h2>
+<h4>Displaying all users</h4>
+<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <%= will_paginate @users, renderer: FoundationPagination::Rails %>
+    <%= render @users %>
+    <%= will_paginate @users, renderer: FoundationPagination::Rails %>
+  </div>
+</div>

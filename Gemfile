@@ -48,12 +48,12 @@ gem 'bcrypt-ruby', '3.0.1'
 # gem 'debugger', group: [:development, :test]
 
 gem 'zurb-foundation'
-
 gem 'simple_form'
-
 gem 'nested_form'
-
 gem 'figaro'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'will_paginate-foundation'
 
 group :test, :development do
   gem 'rspec-rails', '2.13.1'
