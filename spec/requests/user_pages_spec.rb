@@ -69,7 +69,7 @@ describe "User pages" do
   describe "signup" do
     before { visit signup_path }
 
-    let(:submit) { "Create User" }
+    let(:submit) { "Create Account" }
 
     describe "with invalid information" do
       it "should not create a user" do
@@ -117,11 +117,12 @@ describe "User pages" do
     describe "page" do
       it { should have_content("Update your profile") }
       it { should have_title("Edit user") }
-      it { should have_link('change', href: 'http://gravatar.com/emails') }
+      it { should have_link('Change Gravatar',
+                            href: 'http://gravatar.com/emails') }
     end
 
     describe "with invalid information" do
-      before { click_button "Update User" }
+      before { click_button "Update Information" }
 
       it { should have_field_error 'is too short' }
     end
@@ -135,7 +136,7 @@ describe "User pages" do
         fill_in "Email", with: new_email
         fill_in "Password", with: user.password
         fill_in "Confirmation", with: user.password
-        click_button "Update User"
+        click_button "Update Information"
       end
 
       it { should have_title(new_name) }

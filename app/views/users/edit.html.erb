@@ -3,10 +3,10 @@
 <h2>Update your profile</h2>
 <h4>Change the information in your profile</h4>
 <% end %>
-<%= render 'form', user: @user %>
+<%= render 'form', user: @user, submit_text: 'Update Information' %>
 <div class="row">
   <div class="large-12 columns">
     <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
+    <%= link_to "Change Gravatar", "http://gravatar.com/emails", target: '_blank' %>
   </div>
 </div>
