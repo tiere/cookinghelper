@@ -68,6 +68,11 @@ describe "Authentication" do
           before { get new_user_path }
           specify { expect(response).to redirect_to root_url }
         end
+
+        describe "submitting to the create action" do
+          before { post users_path }
+          specify { expect(response).to redirect_to root_url }
+        end
       end
     end
     describe "for non-signed-in users" do
@@ -102,6 +107,17 @@ describe "Authentication" do
           it "should render the desired protected page" do
             expect(page).to have_title('Edit user')
           end
+
+          describe "when signing in again" do
+            before do
+              delete signout_path
+              sign_in user
+            end
+
+            it "should render the default page" do
+              expect(page).to have_title user.name
+            end
+          end
         end
       end
 
@@ -114,6 +130,26 @@ describe "Authentication" do
         describe "submitting a DELETE request to the Users#destroy action" do
           before { delete user_path(user) }
           specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      describe "as admin user" do
+        let(:admin) { FactoryGirl.create :admin }
+        before { sign_in admin, no_capybara: true }
+
+        describe "trying to delete self via DELETE" do
+          it "should not be able to destroy itself" do
+            expect { delete user_path(admin) }.not_to change(User, :count)
+          end
+
+          describe "redirection" do
+            before { delete user_path(admin) }
+
+            it "should redirect to users url" do
+              expect { response.to redirect_to users_url }
+              flash[:notice].should eq 'Cannot delete self'
+            end
+          end
         end
       end
     end
