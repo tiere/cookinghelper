@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028135627) do
+ActiveRecord::Schema.define(version: 20131030193230) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -43,9 +43,11 @@ ActiveRecord::Schema.define(version: 20131028135627) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.integer  "user_id"
   end
 
   add_index "recipes", ["category_id"], name: "index_recipes_on_category_id", using: :btree
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "steps", force: true do |t|
     t.string   "name"
