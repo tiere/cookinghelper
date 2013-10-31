@@ -3,6 +3,7 @@ class Recipe < ActiveRecord::Base
   has_many :foodstuffs, :through => :ingredients
   has_many :steps
   belongs_to :category
+  belongs_to :user
 
   delegate :name, to: :category, prefix: true
 
@@ -12,10 +13,10 @@ class Recipe < ActiveRecord::Base
   validates :name,
     presence: true,
     length: { minimum: 2, maximum: 60 },
-    format: { with: /\A[a-zA-Z ]+\z/, message: "can only contain letters" }
+    format: { with: /\A[a-zA-Z0-9 ]+\z/, message: "can only contain letters" }
 
   validates_associated :steps, :ingredients
-  validates :steps, :ingredients, :category, presence: true
+  validates :steps, :ingredients, :category, :user, presence: true
 
   def duration_to_s
     self.steps.sum('duration')

@@ -4,7 +4,7 @@ class Step < ActiveRecord::Base
   validates :name,
     presence: true,
     length: { minimum: 2, maximum: 60 },
-    format: { with: /\A[a-zA-Z ]+\z/, message: 'can only contain letters' }
+    format: { with: /\A[a-zA-Z0-9 ]+\z/, message: 'can only contain letters' }
 
   validates :duration,
     presence: true,

@@ -16,6 +16,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:recipes) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -126,5 +127,17 @@ describe User do
   describe "remember_token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "recipe associations" do
+
+    before { @user.save }
+
+    let!(:recipe_1) { FactoryGirl.create(:recipe, user: @user) }
+    let!(:recipe_2) { FactoryGirl.create(:recipe, user: @user) }
+
+    it "should have the right recipes" do
+      expect(@user.recipes.to_a.sort).to eq [recipe_1, recipe_2].sort
+    end
   end
 end

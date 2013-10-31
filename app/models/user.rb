@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   before_save { email.downcase! }
   before_create :create_remember_token
 
+  has_many :recipes
+
   has_secure_password
 
   validates :name, presence: true, length: { maximum: 30 }
