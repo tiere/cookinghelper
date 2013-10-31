@@ -139,5 +139,14 @@ describe User do
     it "should have the right recipes" do
       expect(@user.recipes.to_a.sort).to eq [recipe_1, recipe_2].sort
     end
+
+    it "should destroy associates recipes" do
+      recipes = @user.recipes.to_a
+      @user.destroy
+      expect(recipes).not_to be_empty
+      recipes.each do |recipe|
+        expect(Recipe.where(id: recipe.id)).to be_empty
+      end
+    end
   end
 end
