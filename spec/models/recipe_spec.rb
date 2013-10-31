@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe Recipe do
-
-  before { @recipe = FactoryGirl.create(:recipe) }
-
-  subject { @recipe }
+  let(:recipe) { FactoryGirl.create(:recipe_with_3_steps) }
 
   it { should respond_to :name }
   it { should respond_to :ingredients }
@@ -12,10 +9,37 @@ describe Recipe do
   it { should respond_to :category }
   it { should respond_to :user }
 
-  it { should be_valid }
+  it { should validate_presence_of(:name) }
+  it { should ensure_length_of(:name).is_at_least(2).is_at_most(60) }
+  it { should allow_value('The extravagant soup of best').for(:name) }
 
-  describe "when user_id is not preset" do
-    before { @recipe.user_id = nil }
-    it { should_not be_valid }
+  it { should have_many(:steps) }
+  it { should have_many(:ingredients) }
+  it { should have_many(:foodstuffs).through(:ingredients) }
+  it { should belong_to(:category) }
+
+  it { should validate_presence_of(:ingredients) }
+  it { should validate_presence_of(:steps) }
+  it { should validate_presence_of(:category) }
+
+  describe "duration_to_s" do
+    it "should return sum of steps in seconds" do
+      expect(recipe.duration_to_s).to eq recipe.steps.to_a.sum(&:duration)
+    end
+  end
+
+  describe "duration_to_m" do
+    it "should return sum of steps in minutes" do
+      expect(recipe.duration_to_m).to eq recipe.steps.to_a.sum(&:duration) / 60
+    end
+  end
+
+  describe "progress_bar_width" do
+    describe "when duration is between 1 and 15 minutes" do
+      let(:recipe) { FactoryGirl.create(:recipe) }
+      it "should return correct value" do
+        expect(recipe.progress_bar_width).to eq 30
+      end
+    end
   end
 end
