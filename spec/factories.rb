@@ -26,7 +26,7 @@ FactoryGirl.define do
 
   factory :step do
     sequence(:name) { |n| "Boil water #{n}" }
-    duration 300
+    duration 900
   end
 
   factory :ingredient do
@@ -39,15 +39,14 @@ FactoryGirl.define do
     sequence(:name) { |n| "Garlic Soup #{n}" }
     category
     user
-    after(:build) do |recipe|
-      recipe.steps << FactoryGirl.build(:step)
-      recipe.ingredients << FactoryGirl.build(:ingredient)
+
+    ignore do
+      steps_count 1
     end
 
-    factory :recipe_with_3_steps do
-      after(:create) do |recipe|
-        2.times { recipe.steps << FactoryGirl.build(:step) }
-      end
+    after(:build) do |recipe, evaluator|
+      evaluator.steps_count.times { recipe.steps << FactoryGirl.build(:step) }
+      recipe.ingredients << FactoryGirl.build(:ingredient)
     end
   end
 end

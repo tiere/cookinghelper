@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Recipe do
-  let(:recipe) { FactoryGirl.create(:recipe_with_3_steps) }
+  let(:recipe) { FactoryGirl.create(:recipe) }
 
   it { should respond_to :name }
   it { should respond_to :ingredients }
@@ -39,6 +39,27 @@ describe Recipe do
       let(:recipe) { FactoryGirl.create(:recipe) }
       it "should return correct value" do
         expect(recipe.progress_bar_width).to eq 30
+      end
+    end
+
+    describe "when duration is between 16 and 30 minutes" do
+      let(:recipe) { FactoryGirl.create(:recipe, steps_count: 2 ) }
+      it "should return correct value" do
+        expect(recipe.progress_bar_width).to eq 50
+      end
+    end
+
+    describe "when duration is between 31 and 60 minutes" do
+      let(:recipe) { FactoryGirl.create(:recipe, steps_count: 4 ) }
+      it "should return correct value" do
+        expect(recipe.progress_bar_width).to eq 80
+      end
+    end
+
+    describe "when duration is over 60 minutes" do
+      let(:recipe) { FactoryGirl.create(:recipe, steps_count: 5 ) }
+      it "should return correct value" do
+        expect(recipe.progress_bar_width).to eq 100
       end
     end
   end
