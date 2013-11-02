@@ -12,15 +12,21 @@ describe Recipe do
   it { should validate_presence_of(:name) }
   it { should ensure_length_of(:name).is_at_least(2).is_at_most(60) }
   it { should allow_value('The extravagant soup of best').for(:name) }
+  it { should_not allow_value('Not a #$% good name').for(:name) }
+
+  it { should validate_presence_of(:ingredients) }
+  it { should validate_presence_of(:steps) }
+  it { should validate_presence_of(:category) }
+  it { should validate_presence_of(:user) }
 
   it { should have_many(:steps) }
   it { should have_many(:ingredients) }
   it { should have_many(:foodstuffs).through(:ingredients) }
   it { should belong_to(:category) }
+  it { should belong_to(:user) }
 
-  it { should validate_presence_of(:ingredients) }
-  it { should validate_presence_of(:steps) }
-  it { should validate_presence_of(:category) }
+  it { should accept_nested_attributes_for(:steps).allow_destroy(true) }
+  it { should accept_nested_attributes_for(:ingredients).allow_destroy(true) }
 
   describe "duration_to_s" do
     it "should return sum of steps in seconds" do

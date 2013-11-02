@@ -13,7 +13,8 @@ class Recipe < ActiveRecord::Base
   validates :name,
     presence: true,
     length: { minimum: 2, maximum: 60 },
-    format: { with: /\A[a-zA-Z0-9 ]+\z/, message: "can only contain letters" }
+    format: { with: /\A[a-zA-Z0-9 ]+\z/,
+      message: "can only contain letters and numbers" }
 
   validates_associated :steps, :ingredients
   validates :steps, :ingredients, :category, :user, presence: true
