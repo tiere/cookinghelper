@@ -34,32 +34,44 @@ describe Recipe do
     end
   end
 
-  describe "progress_bar_width" do
+  describe "progress bar" do
     describe "when duration is between 1 and 15 minutes" do
       let(:recipe) { FactoryGirl.create(:recipe) }
-      it "should return correct value" do
+      it "should have correct width" do
         expect(recipe.progress_bar_width).to eq 30
+      end
+      it "should have correct class" do
+        expect(recipe.progress_bar_class).to eq 'progress-green'
       end
     end
 
     describe "when duration is between 16 and 30 minutes" do
       let(:recipe) { FactoryGirl.create(:recipe, steps_count: 2 ) }
-      it "should return correct value" do
+      it "should have correct width" do
         expect(recipe.progress_bar_width).to eq 50
+      end
+      it "should have correct class" do
+        expect(recipe.progress_bar_class).to eq 'progress-yellow'
       end
     end
 
     describe "when duration is between 31 and 60 minutes" do
       let(:recipe) { FactoryGirl.create(:recipe, steps_count: 4 ) }
-      it "should return correct value" do
+      it "should have correct width" do
         expect(recipe.progress_bar_width).to eq 80
+      end
+      it "should have correct class" do
+        expect(recipe.progress_bar_class).to eq 'progress-orange'
       end
     end
 
     describe "when duration is over 60 minutes" do
       let(:recipe) { FactoryGirl.create(:recipe, steps_count: 5 ) }
-      it "should return correct value" do
+      it "should have correct width" do
         expect(recipe.progress_bar_width).to eq 100
+      end
+      it "should have correct class" do
+        expect(recipe.progress_bar_class).to eq 'progress-red'
       end
     end
   end
