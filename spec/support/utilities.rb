@@ -13,6 +13,32 @@ def sign_in(user, options={})
   end
 end
 
+def fill_recipe_info
+  fill_in "recipe_name", with: "Kaalilaatikko"
+  select('Soup', from: "recipe_category_id")
+
+  select('Corn', from: 'recipe_ingredients_attributes_0_foodstuff_id')
+  fill_in('recipe_ingredients_attributes_0_quantity', with: 1 )
+  select('Kilograms', from: 'recipe_ingredients_attributes_0_unit_id')
+
+  select('Corn', from: 'recipe_ingredients_attributes_1_foodstuff_id')
+  fill_in('recipe_ingredients_attributes_1_quantity', with: 2 )
+  select('Kilograms', from: 'recipe_ingredients_attributes_1_unit_id')
+
+  select('Corn', from: 'recipe_ingredients_attributes_2_foodstuff_id')
+  fill_in('recipe_ingredients_attributes_2_quantity', with: 3 )
+  select('Kilograms', from: 'recipe_ingredients_attributes_2_unit_id')
+
+  fill_in("recipe_steps_attributes_0_name", with: "Boiling")
+  fill_in("recipe_steps_attributes_0_duration_h", with: '1')
+
+  fill_in("recipe_steps_attributes_1_name", with: "Cutting")
+  fill_in("recipe_steps_attributes_1_duration_h", with: '1')
+
+  fill_in("recipe_steps_attributes_2_name", with: "Slicing")
+  fill_in("recipe_steps_attributes_2_duration_h", with: '1')
+end
+
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     expect(page).to have_selector('div.alert-box.alert', text: message)

@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :signed_in_user, only: [:create, :destroy]
   def index
     @recipes = Recipe.all
   end
@@ -11,7 +12,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
       redirect_to @recipe
@@ -36,6 +37,9 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+  end
+
+  def destroy
   end
 
   private

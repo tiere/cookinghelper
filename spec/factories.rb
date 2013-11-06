@@ -26,7 +26,7 @@ FactoryGirl.define do
 
   factory :step do
     sequence(:name) { |n| "Boil water #{n}" }
-    duration 900
+    duration_s 900
   end
 
   factory :ingredient do

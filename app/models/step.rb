@@ -42,10 +42,12 @@ class Step < ActiveRecord::Base
   end
 
   def sum_durations
-    hours = @duration_h.to_i * 60 * 60
-    minutes = @duration_m.to_i * 60
-    seconds = @duration_s.to_i
+    unless @duration_h.nil? && @duration_m.nil? && @duration_s.nil?
+      hours = @duration_h.to_i * 60 * 60
+      minutes = @duration_m.to_i * 60
+      seconds = @duration_s.to_i
 
-    self.duration = hours + minutes + seconds
+      self.duration = hours + minutes + seconds
+    end
   end
 end

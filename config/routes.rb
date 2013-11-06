@@ -5,7 +5,7 @@ Cookinghelper::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', via: 'delete'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :recipes, except: [:destroy]
+  resources :recipes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
