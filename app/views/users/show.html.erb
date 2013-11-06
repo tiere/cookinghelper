@@ -9,7 +9,16 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-6 columns">
     <p>email: <%= @user.email %></p>
+  </div>
+  <div class="large-6 columns">
+    <% if @user.recipes.any? %>
+    <h4>Recipes (<%= @user.recipes.count %>)</h4>
+    <ul>
+      <%= render @recipes %>
+    </ul>
+    <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
+    <% end %>
   </div>
 </div>

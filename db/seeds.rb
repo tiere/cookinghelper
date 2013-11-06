@@ -28,7 +28,10 @@ recipe_names = [
   'Tuna Sandwich', 'Blueberry pie', 'Apple pie', 'Chicken Tortillas'
 ]
 
-recipe_names.each do |name|
+recipe_names.each.with_index do |name, i|
+  user = User.create!(name: Faker::Name.name, email: "example-#{i}@example.com",
+                      password: 'password', password_confirmation: 'password')
+
   steps = Step.create!([
                          { name: 'Boil water', duration: rand(60..900) },
                          { name: 'Slice carrots', duration: rand(60..900) },
@@ -44,19 +47,10 @@ recipe_names.each do |name|
 
   Recipe.create!([
                    { name: name, steps: steps, ingredients: ingredients,
-                     category: categories[rand(0..3)] }
+                     category: categories[rand(0..3)], user: user }
   ])
 end
 
 User.create!(name: "testing", email: "testing@example.com",
              password: "swordfish", password_confirmation: "swordfish",
              admin: true)
-
-99.times do |n|
-  name = Faker::Name.name
-  email = "example-#{n+1}@example.com"
-  password = "password"
-
-  User.create!(name: name, email: email, password: password,
-               password_confirmation: password)
-end

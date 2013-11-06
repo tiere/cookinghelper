@@ -53,10 +53,19 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:recipe1) { FactoryGirl.create(:recipe, user: user) }
+    let!(:recipe2) { FactoryGirl.create(:recipe, user: user) }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "recipes" do
+      it { should have_content(recipe1.name) }
+      it { should have_content(recipe2.name) }
+      it { should have_content(user.recipes.count) }
+    end
   end
 
   describe "signup page" do
