@@ -1,4 +1,6 @@
 class Step < ActiveRecord::Base
+  before_validation :sum_durations
+
   belongs_to :recipe
 
   validates :name,
@@ -10,7 +12,8 @@ class Step < ActiveRecord::Base
     validates :duration,
     presence: true,
     numericality: { only_integer: true },
-    inclusion: { in: 60..86400, message: 'must be between 1 minute and 24 hours' }
+    inclusion: { in: 60..86400, message:
+                 'must be between 1 minute and 24 hours' }
 
   def duration_h
     unless self.duration.nil?
