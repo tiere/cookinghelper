@@ -17,7 +17,7 @@ def fill_recipe_info
   fill_in "recipe_name", with: "Kaalilaatikko"
   select('Soup', from: "recipe_category_id")
 
-  select('Corn', from: 'recipe_ingredients_attributes_0_foodstuff_id')
+  select('Corn', from: 'recipe_ingredients_attributes_0_foodstuff_id', match: :first)
   fill_in('recipe_ingredients_attributes_0_quantity', with: 1 )
   select('Kilograms', from: 'recipe_ingredients_attributes_0_unit_id')
 

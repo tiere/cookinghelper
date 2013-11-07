@@ -54,6 +54,7 @@ gem 'figaro'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'will_paginate-foundation'
+gem 'database_cleaner'
 
 group :test, :development do
   gem 'rspec-rails', '2.13.1'

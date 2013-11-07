@@ -49,4 +49,18 @@ describe "Recipe Pages" do
       end
     end
   end
+
+  describe "recipe show page" do
+    describe "when owner of the recipe" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:recipe) { FactoryGirl.create(:recipe, user: user) }
+
+      before do
+        sign_in(user)
+        visit recipe_path(recipe)
+      end
+
+      it { should have_link('Delete recipe', href: recipe_path(recipe)) }
+    end
+  end
 end
