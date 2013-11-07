@@ -26,11 +26,11 @@
             </div>
           </div>
         </td>
-        <td data-no-turbolink><%= link_to "Edit", edit_recipe_path(recipe) %></td>
+        <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
       </tr>
       <% end %>
     </table>
     <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
-    <%= link_to "New Recipe", new_recipe_path, class: 'orange-button', data: { no_turbolink: true } %>
+    <%= link_to "New Recipe", new_recipe_path, class: 'orange-button' %>
   </div>
 </div>
