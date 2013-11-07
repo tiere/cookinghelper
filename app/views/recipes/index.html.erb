@@ -5,6 +5,7 @@
 <% end %>
 <div class="row">
   <div class="large-12 columns">
+    <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
     <table>
       <tr>
         <th>Name</th>
@@ -29,6 +30,7 @@
       </tr>
       <% end %>
     </table>
+    <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
     <%= link_to "New Recipe", new_recipe_path, class: 'orange-button', data: { no_turbolink: true } %>
   </div>
 </div>

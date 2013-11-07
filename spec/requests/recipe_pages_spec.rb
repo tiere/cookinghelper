@@ -32,4 +32,21 @@ describe "Recipe Pages" do
       end
     end
   end
+
+  describe "recipe index" do
+    before { visit recipes_path }
+
+    describe "pagination" do
+      before(:all) { 30.times { FactoryGirl.create(:recipe) } }
+      after(:all) { Recipe.delete_all }
+
+      it { should have_pagination_selector }
+
+      it "should list each recipe" do
+        Recipe.paginate(page: 1).each do |recipe|
+          expect(page).to have_selector('a', text: recipe.name)
+        end
+      end
+    end
+  end
 end

@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
-  has_many :ingredients
+  has_many :ingredients, dependent: :destroy
   has_many :foodstuffs, :through => :ingredients
-  has_many :steps
+  has_many :steps, dependent: :destroy
   belongs_to :category
   belongs_to :user
 

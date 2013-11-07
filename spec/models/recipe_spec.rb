@@ -19,8 +19,8 @@ describe Recipe do
   it { should validate_presence_of(:category) }
   it { should validate_presence_of(:user) }
 
-  it { should have_many(:steps) }
-  it { should have_many(:ingredients) }
+  it { should have_many(:steps).dependent(:destroy) }
+  it { should have_many(:ingredients).dependent(:destroy) }
   it { should have_many(:foodstuffs).through(:ingredients) }
   it { should belong_to(:category) }
   it { should belong_to(:user) }

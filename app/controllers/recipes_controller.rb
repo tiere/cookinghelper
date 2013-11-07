@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.paginate(page: params[:page])
   end
 
   def new

@@ -62,3 +62,9 @@ RSpec::Matchers.define :have_success_message do |message|
     expect(page).to have_selector('div.alert-box.success', text: message)
   end
 end
+
+RSpec::Matchers.define :have_pagination_selector do
+  match do |page|
+    expect(page).to have_selector('ul.pagination')
+  end
+end
