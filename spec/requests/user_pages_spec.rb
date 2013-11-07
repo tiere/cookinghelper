@@ -62,8 +62,8 @@ describe "User pages" do
     it { should have_title(user.name) }
 
     describe "recipes" do
-      it { should have_content(recipe1.name) }
-      it { should have_content(recipe2.name) }
+      it { should have_link(recipe1.name, href: recipe_path(recipe1)) }
+      it { should have_link(recipe2.name, href: recipe_path(recipe2)) }
       it { should have_content(user.recipes.count) }
     end
   end
