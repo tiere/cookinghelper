@@ -5,6 +5,8 @@
 <% end %>
 <div class="row">
   <div class="large-12 columns">
+    <% unless signed_in? %>
     <%= link_to "Sign up", signup_path, class: 'orange-button' %>
+    <% end %>
   </div>
 </div>
