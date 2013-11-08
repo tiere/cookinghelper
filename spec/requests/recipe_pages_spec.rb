@@ -61,6 +61,33 @@ describe "Recipe Pages" do
       end
 
       it { should have_link('Delete recipe', href: recipe_path(recipe)) }
+
+      describe "recipe deletion" do
+        it "should destroy the recipe" do
+          expect { click_link "Delete recipe" }.to change(Recipe, :count).by(-1)
+        end
+
+        describe "redirection" do
+          before { click_link "Delete recipe" }
+          it "should redirect to root with correct flash" do
+            expect(page).to have_title('Home')
+            expect(page).to have_success_message
+          end
+        end
+      end
+    end
+
+    describe "when not the owner of the recipe" do
+      let(:different_user) { FactoryGirl.create(:user) }
+      let(:recipe) { FactoryGirl.create(:recipe, user: different_user) }
+      let(:user) { FactoryGirl.create(:user) }
+
+      before do
+        sign_in(user)
+        visit recipe_path(recipe)
+      end
+
+      it { should_not have_link('Delete recipe') }
     end
   end
 end

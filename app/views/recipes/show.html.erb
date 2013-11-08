@@ -44,6 +44,10 @@
         </tbody>
       </table>
     </div>
-    <p><%= link_to "Go back to recipe listing", recipes_path, class: "back-button" %></p>
+    <% if @recipe.user == current_user %>
+    <%= link_to 'Delete recipe', @recipe, method: :delete,
+    data: { confirm: "Do you really want to delete this recipe?" }, title: @recipe.name %>
+    <% end %>
+    <%= link_to "Go back to recipe listing", recipes_path, class: "back-button" %>
   </div>
 </div>

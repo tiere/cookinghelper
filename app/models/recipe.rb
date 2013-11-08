@@ -14,9 +14,9 @@ class Recipe < ActiveRecord::Base
     presence: true,
     length: { minimum: 2, maximum: 60 },
     format: { with: /\A[a-zA-Z0-9 ]+\z/,
-      message: "can only contain letters and numbers" }
+              message: "can only contain letters and numbers" }
 
-  validates_associated :steps, :ingredients
+    validates_associated :steps, :ingredients
   validates :steps, :ingredients, :category, :user, presence: true
 
   def duration_to_s
@@ -47,7 +47,7 @@ class Recipe < ActiveRecord::Base
     when 50
       return 'progress-yellow'
     when 80
-        return 'progress-orange'
+      return 'progress-orange'
     else
       return 'progress-red'
     end

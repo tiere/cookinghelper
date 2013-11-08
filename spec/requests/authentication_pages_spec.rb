@@ -181,6 +181,26 @@ describe "Authentication" do
         before { patch user_path(wrong_user) }
         specify { expect(response).to redirect_to(root_url) }
       end
+
+      describe "in the recipes controller" do
+        describe "submitting a DELETE request to the Recipes#destroy" do
+          let(:recipe) { FactoryGirl.create(:recipe, user: wrong_user) }
+          before { delete recipe_path(recipe) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe "submitting a PATCH request to the Recipes#update" do
+          let(:recipe) { FactoryGirl.create(:recipe, user: wrong_user) }
+          before { patch recipe_path(recipe) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe "submitting a GET request to the Recipes#update" do
+          let(:recipe) { FactoryGirl.create(:recipe, user: wrong_user) }
+          before { get edit_recipe_path(recipe) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
     end
   end
 end

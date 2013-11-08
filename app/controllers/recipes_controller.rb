@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   def index
     @recipes = Recipe.paginate(page: params[:page])
   end
@@ -27,8 +28,6 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
-
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -41,6 +40,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe.destroy
+    flash[:success] = "Recipe successfully deleted"
+    redirect_to root_url
   end
 
   private
@@ -53,5 +55,10 @@ class RecipesController < ApplicationController
       steps_attributes: [:id, :name, :_destroy, :duration_h, :duration_m, :duration_s],
       ingredients_attributes: [:id, :quantity, :foodstuff_id, :unit_id, :recipe_id, :_destroy]
     )
+  end
+
+  def correct_user
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    redirect_to root_url if @recipe.nil?
   end
 end
