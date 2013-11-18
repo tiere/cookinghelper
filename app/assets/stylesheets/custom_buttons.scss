@@ -11,7 +11,7 @@ $active: true;
 }
 
 .orange-button {
-  @include custom-button($primary-color)
+  @include custom-button($primary-color);
 }
 
 .submit-button {
@@ -29,7 +29,7 @@ $active: true;
 }
 
 .back-button {
-  @include custom-button($secondary-color)
+  @include custom-button($secondary-color);
 }
 
 .right {

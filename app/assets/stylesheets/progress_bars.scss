@@ -17,13 +17,13 @@ $red: #F94222;
 }
 
 .progress-yellow {
-  @include progress-custom($yellow)
+  @include progress-custom($yellow);
 }
 
 .progress-orange {
-  @include progress-custom($orange)
+  @include progress-custom($orange);
 }
 
 .progress-red {
-  @include progress-custom($red)
+  @include progress-custom($red);
 }
