@@ -20,3 +20,6 @@
 
 # RubyMine files
 /.idea
+
+#Coverage
+/coverage
