@@ -1,4 +1,3 @@
-$reddish: #BB413D;
 $radius: true;
 $active: true;
 
@@ -25,7 +24,7 @@ $active: true;
 }
 
 .remove-button {
-  @include custom-button($reddish, $button-sml);
+  @include custom-button($alert-color, $button-sml);
 }
 
 .back-button {
