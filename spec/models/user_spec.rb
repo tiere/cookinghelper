@@ -42,7 +42,7 @@ describe User do
 
   describe "when name is too long" do
     before { @user.name = "a" * 31 }
-    it {should_not be_valid}
+    it { should_not be_valid }
   end
 
   describe "when email format is invalid" do
@@ -85,7 +85,7 @@ describe User do
       user_with_same_email.save
     end
 
-    it {should_not be_valid}
+    it { should_not be_valid }
   end
 
   describe "when password is not present" do

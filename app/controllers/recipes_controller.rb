@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
+
   def index
     @recipes = Recipe.paginate(page: params[:page])
   end
@@ -49,11 +50,11 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(
-      :name,
-      :category_id,
-      ingredient_ids: [],
-      steps_attributes: [:id, :name, :_destroy, :duration_h, :duration_m, :duration_s],
-      ingredients_attributes: [:id, :quantity, :foodstuff_id, :unit_id, :recipe_id, :_destroy]
+        :name,
+        :category_id,
+        ingredient_ids: [],
+        steps_attributes: [:id, :name, :_destroy, :duration_h, :duration_m, :duration_s],
+        ingredients_attributes: [:id, :quantity, :foodstuff_id, :unit_id, :recipe_id, :_destroy]
     )
   end
 

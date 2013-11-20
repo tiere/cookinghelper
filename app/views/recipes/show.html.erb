@@ -1,6 +1,6 @@
 <%= content_for :header do %>
-<h2><%= @recipe.name %></h2>
-<h4>Showing info for <%= @recipe.name %></h4>
+    <h2><%= @recipe.name %></h2>
+    <h4>Showing info for <%= @recipe.name %></h4>
 <% end %>
 <div class="row">
   <div class="large-12 columns">
@@ -8,20 +8,20 @@
       <h4>Ingredients</h4>
       <table>
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-          </tr>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+        </tr>
         </thead>
         <tbody>
-          <% @recipe.ingredients.each do |ingredient| %>
-          <tr>
-            <td><%= ingredient.foodstuff_name %></td>
-            <td><%= ingredient.quantity %></td>
-            <td><%= ingredient.unit_name %></td>
-          </tr>
-          <% end %>
+        <% @recipe.ingredients.each do |ingredient| %>
+            <tr>
+              <td><%= ingredient.foodstuff_name %></td>
+              <td><%= ingredient.quantity %></td>
+              <td><%= ingredient.unit_name %></td>
+            </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
@@ -29,24 +29,24 @@
       <h4>Steps</h4>
       <table>
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Duration</th>
-          </tr>
+        <tr>
+          <th>Name</th>
+          <th>Duration</th>
+        </tr>
         </thead>
         <tbody>
-          <% @recipe.steps.each do |s| %>
-          <tr>
-            <td><%= s.name %></td>
-            <td><%= distance_of_time_in_words(s.duration) %></td>
-          </tr>
-          <% end %>
+        <% @recipe.steps.each do |s| %>
+            <tr>
+              <td><%= s.name %></td>
+              <td><%= distance_of_time_in_words(s.duration) %></td>
+            </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
-    <% if @recipe.user == current_user %>
-    <%= link_to 'Delete recipe', @recipe, method: :delete,
-    data: { confirm: "Do you really want to delete this recipe?" }, title: @recipe.name %>
+    <% if owner_of_recipe(@recipe) %>
+        <%= link_to 'Delete recipe', @recipe, method: :delete,
+                    data: {confirm: "Do you really want to delete this recipe?"}, title: @recipe.name %>
     <% end %>
     <%= link_to "Go back to recipe listing", recipes_path, class: "back-button" %>
   </div>

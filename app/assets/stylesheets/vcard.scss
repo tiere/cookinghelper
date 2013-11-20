@@ -1,0 +1,13 @@
+@media only screen {
+  .profile-vcard {
+    margin-top: emCalc(20);
+    min-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .profile-vcard {
+    margin-top: emCalc(20);
+    min-width: 308px;
+  }
+}

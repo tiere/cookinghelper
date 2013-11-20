@@ -1,34 +1,43 @@
 <%= provide(:title, 'Recipes') %>
 <%= content_for :header do %>
-<h2>Showing recipes</h2>
-<h4>Listing every public recipe in the database</h4>
+    <h2>Showing recipes</h2>
+    <h4>Listing every public recipe in the database</h4>
 <% end %>
 <div class="row">
   <div class="large-12 columns">
     <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
     <table>
+      <thead>
       <tr>
         <th>Name</th>
         <th>Category</th>
-        <th width= "400">Time to make</th>
+        <th class="time-to-make-header">Time to make</th>
+        <% if contains_editable_recipes(@recipes) %>
+            <th></th>
+        <% end %>
       </tr>
+      </thead>
+      <tbody>
       <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= link_to recipe.name, recipe %></td>
-        <td><%= recipe.category_name %></td>
-        <td>
-          <div class="large-4 columns">
-            <%= distance_of_time_in_words(recipe.duration_to_s) %>
-          </div>
-          <div class="large-8 columns">
-            <div class="<%= recipe.progress_bar_class %>">
-              <span class="meter" style="width: <%= recipe.progress_bar_width %>%"></span>
-            </div>
-          </div>
-        </td>
-        <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
-      </tr>
+          <tr>
+            <td><%= link_to recipe.name, recipe %></td>
+            <td><%= recipe.category_name %></td>
+            <td>
+              <div class="large-4 columns">
+                <%= distance_of_time_in_words(recipe.duration_to_s) %>
+              </div>
+              <div class="large-8 columns">
+                <div class="<%= recipe.progress_bar_class %>">
+                  <span class="meter" style="width: <%= recipe.progress_bar_width %>%"></span>
+                </div>
+              </div>
+            </td>
+            <% if owner_of_recipe(recipe) %>
+                <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
+            <% end %>
+          </tr>
       <% end %>
+      </tbody>
     </table>
     <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
     <%= link_to "New Recipe", new_recipe_path, class: 'orange-button' %>
