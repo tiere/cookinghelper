@@ -19,19 +19,19 @@ def fill_recipe_info
 
   select('Corn', from: 'recipe_ingredients_attributes_0_foodstuff_id',
          match: :first)
-  fill_in('recipe_ingredients_attributes_0_quantity', with: 1 )
+  fill_in('recipe_ingredients_attributes_0_quantity', with: 1)
   select('Kilograms', from: 'recipe_ingredients_attributes_0_unit_id',
          match: :first)
 
   select('Corn', from: 'recipe_ingredients_attributes_1_foodstuff_id',
          match: :first)
-  fill_in('recipe_ingredients_attributes_1_quantity', with: 2 )
+  fill_in('recipe_ingredients_attributes_1_quantity', with: 2)
   select('Kilograms', from: 'recipe_ingredients_attributes_1_unit_id',
          match: :first)
 
   select('Corn', from: 'recipe_ingredients_attributes_2_foodstuff_id',
          match: :first)
-  fill_in('recipe_ingredients_attributes_2_quantity', with: 3 )
+  fill_in('recipe_ingredients_attributes_2_quantity', with: 3)
   select('Kilograms', from: 'recipe_ingredients_attributes_2_unit_id',
          match: :first)
 

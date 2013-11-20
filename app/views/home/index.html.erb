@@ -1,12 +1,14 @@
 <%= provide(:title, "Home") %>
 <%= content_for :header do %>
-<h2>Cooking Helper</h2>
-<h4>The place for your cooking needs</h4>
+    <h2>Cooking Helper</h2>
+    <h4>The place for your cooking needs</h4>
 <% end %>
 <div class="row">
   <div class="large-12 columns">
     <% unless signed_in? %>
-    <%= link_to "Sign up", signup_path, class: 'orange-button' %>
+        <p>Welcome! You need to either Sign in or Sign up.</p>
+        <%= link_to "Sign Up", signup_path, class: 'orange-button' %>
+        <%= link_to "Sign In", signin_path, class: 'orange-button' %>
     <% end %>
   </div>
 </div>

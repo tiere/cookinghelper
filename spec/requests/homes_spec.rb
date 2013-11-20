@@ -7,6 +7,8 @@ describe "Home Page" do
 
     it { should have_header 'Cooking Helper' }
     it { should have_title(full_title 'Home') }
+    it { should have_content('Sign Up') }
+    it { should have_content('Sign In') }
 
     it "should have all links working" do
       visit root_path
@@ -15,8 +17,14 @@ describe "Home Page" do
       expect(page).to have_title(full_title 'Home')
 
       click_link "Cooking Helper"
-      click_link "Sign up"
-      expect(page).to have_title(full_title 'Sign up')
+      click_link "Sign Up"
+      expect(page).to have_title(full_title 'Sign Up')
+
+      click_link "Cooking Helper"
+      expect(page).to have_title("Home")
+
+      click_link "Sign In"
+      expect(page).to have_title("Sign In")
     end
   end
 

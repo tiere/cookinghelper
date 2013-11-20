@@ -7,7 +7,7 @@ describe "Authentication" do
     before { visit signin_path }
 
     it { should have_content("Sign in") }
-    it { should have_title('Sign in') }
+    it { should have_title('Sign In') }
   end
 
   describe "signin" do
@@ -16,7 +16,7 @@ describe "Authentication" do
     describe "with invalid information" do
       before { click_button "Sign in" }
 
-      it { should have_title('Sign in') }
+      it { should have_title('Sign In') }
       it { should have_error_message 'Invalid' }
 
       describe "when visiting a new page" do
@@ -39,6 +39,8 @@ describe "Authentication" do
       it { should have_link('Sign out', href: signout_path) }
       it { should have_link('Recipes', href: recipes_path) }
 
+      it { should have_success_message }
+
       it { should_not have_link('Sign in', href: signin_path) }
 
       describe "after signout" do
@@ -52,6 +54,8 @@ describe "Authentication" do
         it { should_not have_link 'Settings' }
         it { should_not have_link 'Sign out' }
         it { should_not have_link 'Recipes' }
+
+        it { should have_success_message }
       end
     end
   end
@@ -61,7 +65,7 @@ describe "Authentication" do
 
       let(:user) { FactoryGirl.create :user }
 
-      before { sign_in user, no_capybara: true}
+      before { sign_in user, no_capybara: true }
 
       describe "in the Users controller" do
         describe "submitting to the new action" do
@@ -81,7 +85,7 @@ describe "Authentication" do
       describe "in the Users controller" do
         describe "visiting the edit page" do
           before { visit edit_user_path(user) }
-          it { should have_title('Sign in') }
+          it { should have_title('Sign In') }
         end
 
         describe "submitting to the update action" do
@@ -91,7 +95,7 @@ describe "Authentication" do
 
         describe "visiting the user index" do
           before { visit users_path }
-          it { should have_title('Sign in') }
+          it { should have_title('Sign In') }
         end
       end
 
