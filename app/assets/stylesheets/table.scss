@@ -1,5 +1,13 @@
-@media only screen and (min-width: 768px) {
-  .time-to-make-header {
-    min-width: emCalc(450);
-  }
+//@media only screen and (min-width: 768px) {
+//  .time-to-make-header {
+//    min-width: rem-calc(450);
+//  }
+//}
+
+table {
+  width: 100%;
+}
+
+.time-to-make-header {
+  width: 50%;
 }

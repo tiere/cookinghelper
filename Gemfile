@@ -47,7 +47,7 @@ gem 'bcrypt-ruby', '3.1.2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'zurb-foundation'
+gem 'foundation-rails'
 gem 'simple_form'
 gem 'nested_form'
 gem 'figaro'

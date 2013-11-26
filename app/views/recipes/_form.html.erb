@@ -1,44 +1,35 @@
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-12 columns">
     <%= simple_nested_form_for recipe do |f| %>
-    <fieldset>
-      <legend>Recipe</legend>
-      <div class="row">
-        <div class="large-6 columns">
-          <%= f.input :name, placeholder: 'Name of the recipe' %>
+        <div class="row">
+          <div class="small-12 medium-6 columns">
+            <%= f.input :name, placeholder: 'Name of the recipe' %>
+          </div>
+          <div class="small-12 medium-6 columns">
+            <%= f.association :category, prompt: 'Select category' %>
+          </div>
         </div>
-        <div class="large-6 columns">
-          <%= f.association :category, prompt: 'Select category' %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="large-12 columns">
-          <fieldset>
-            <legend>Ingredients</legend>
+        <div class="row">
+          <div class="small-12 columns">
             <%= f.simple_fields_for :ingredients %>
-            <%= f.link_to_add "Add an ingredient", :ingredients, class: 'small-orange-button' %>
-          </fieldset>
+            <%= f.link_to_add "Add an ingredient", :ingredients, class: 'button secondary small' %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="large-12 columns">
-          <fieldset>
-            <legend>Steps</legend>
+        <div class="row">
+          <div class="small-12 columns">
             <%= f.simple_fields_for :steps %>
-            <%= f.link_to_add 'Add a step', :steps, class: 'small-orange-button' %>
-          </fieldset>
+            <%= f.link_to_add 'Add a step', :steps, class: 'button secondary small' %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="large-12 columns">
-          <%= f.button :submit %>
+        <div class="row">
+          <div class="small-12 columns">
+            <%= f.button :submit %>
+          </div>
         </div>
-      </div>
-    </fieldset>
     <% end %>
     <div class="row">
-      <div class="large-3 columns">
-        <%= link_to 'Back to recipes', recipes_path, class: 'back-button' %>
+      <div class="small-12 columns">
+        <%= link_to 'Back to recipes', recipes_path, class: 'secondary button small' %>
       </div>
     </div>
   </div>

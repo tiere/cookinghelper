@@ -4,7 +4,7 @@
     <h4>Showing your profile</h4>
 <% end -%>
 <div class="row">
-  <div class="large-5 columns">
+  <div class="small-12 medium-5 columns">
     <ul class="clearing-thumbs" data-clearing>
       <li class="gravatar"><a class="th" href="<%= gravatar_url_for @user %>"><%= gravatar_for @user, size: 300 %></a>
       </li>
@@ -14,10 +14,11 @@
       <li class="email"><%= @user.email %></li>
     </ul>
   </div>
-  <div class="large-7 columns">
+  <div class="small-12 medium-7 columns">
     <% if @user.recipes.any? %>
-        <h4><%= pluralize(@user.recipes.count, 'recipe') %></h4>
-        <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
+        <%= page_entries_info @recipes, model: 'recipes' %>
+
+        <%= will_paginate @recipes, page_links: false, renderer: FoundationPagination::Rails %>
         <table>
           <thead>
           <th>Name</th>

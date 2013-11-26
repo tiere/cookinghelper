@@ -27,3 +27,7 @@ $red: #F94222;
 .progress-red {
   @include progress-custom($red);
 }
+
+.no-padding {
+  padding: 0;
+}

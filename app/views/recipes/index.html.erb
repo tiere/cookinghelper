@@ -4,8 +4,9 @@
     <h4>Listing every public recipe in the database</h4>
 <% end %>
 <div class="row">
-  <div class="large-12 columns">
-    <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
+  <div class="small-12 columns">
+    <%= page_entries_info @recipes, model: 'recipes' %>
+    <%= will_paginate @recipes, page_links: false, renderer: FoundationPagination::Rails %>
     <table>
       <thead>
       <tr>
@@ -23,10 +24,10 @@
             <td><%= link_to recipe.name, recipe %></td>
             <td><%= recipe.category_name %></td>
             <td>
-              <div class="large-4 columns">
+              <div class="small-12 medium-4 columns">
                 <%= distance_of_time_in_words(recipe.duration_to_s) %>
               </div>
-              <div class="large-8 columns">
+              <div class="small-8 columns hide-for-small-only no-padding">
                 <div class="<%= recipe.progress_bar_class %>">
                   <span class="meter" style="width: <%= recipe.progress_bar_width %>%"></span>
                 </div>
@@ -39,7 +40,7 @@
       <% end %>
       </tbody>
     </table>
-    <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
-    <%= link_to "New Recipe", new_recipe_path, class: 'orange-button' %>
+    <%= will_paginate @recipes, page_links: false, renderer: FoundationPagination::Rails %>
+    <%= link_to "New Recipe", new_recipe_path, class: 'button' %>
   </div>
 </div>

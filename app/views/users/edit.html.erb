@@ -1,12 +1,16 @@
 <% provide(:title, 'Edit user') %>
 <%= content_for :header do %>
-<h2>Update your profile</h2>
-<h4>Change the information in your profile</h4>
+    <h2>Update your profile</h2>
+    <h4>Change the information in your profile</h4>
 <% end %>
-<%= render 'form', user: @user, submit_text: 'Update Information' %>
 <div class="row">
-  <div class="large-12 columns">
-    <%= gravatar_for @user %>
-    <%= link_to "Change Gravatar", "http://gravatar.com/emails", target: '_blank' %>
+  <div class="small-12 medium-6 columns">
+    <div class="padding-bottom">
+    <%= gravatar_for @user, size: 300 %>
+    </div>
+    <%= link_to "Change Gravatar", "http://gravatar.com/emails", target: '_blank', class: 'button' %>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <%= render 'form', user: @user, submit_text: 'Update Information' %>
   </div>
 </div>

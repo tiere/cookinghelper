@@ -46,8 +46,8 @@
     </div>
     <% if owner_of_recipe(@recipe) %>
         <%= link_to 'Delete recipe', @recipe, method: :delete,
-                    data: {confirm: "Do you really want to delete this recipe?"}, title: @recipe.name %>
+                    data: {confirm: "Do you really want to delete this recipe?"}, title: @recipe.name, class: "button" %>
     <% end %>
-    <%= link_to "Go back to recipe listing", recipes_path, class: "back-button" %>
+    <%= link_to "Go back to recipe listing", recipes_path, class: "button" %>
   </div>
 </div>

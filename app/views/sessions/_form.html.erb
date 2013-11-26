@@ -1,14 +1,6 @@
-<div class="row">
-  <div class="large-12 columns">
-    <%= simple_form_for(:session, url: sessions_path) do |f| %>
-    <fieldset>
-      <legend>Sign in</legend>
-      <%= f.input :email, placeholder: 'Enter your email' %>
-      <%= f.input :password, placeholder: "Enter your password" %>
-      <%= f.button :submit, 'Sign in' %>
-    </fieldset>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
-</div>
+<%= simple_form_for(:session, url: sessions_path) do |f| %>
+    <%= f.input :email, placeholder: 'Enter your email' %>
+    <%= f.input :password, placeholder: "Enter your password" %>
+    <%= f.button :submit, 'Sign in' %>
+<% end %>
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>

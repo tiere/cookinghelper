@@ -1,9 +1,6 @@
-$dark-orange: #803300;
-$white: #FFFFFF;
-
 header {
   background: $primary-light;
-  margin-bottom: emCalc(20);
+  margin-bottom: rem-calc(20);
   box-shadow: 0px 4px 8px $dark-orange;
 
   h2, h4 {
@@ -12,10 +9,10 @@ header {
 }
 
 footer {
-  margin-top: emCalc(20);
-  padding-top: emCalc(20);
-  padding-left: emCalc(20);
-  padding-right: emCalc(20);
+  margin-top: rem-calc(20);
+  padding-top: rem-calc(20);
+  padding-left: rem-calc(20);
+  padding-right: rem-calc(20);
   color: $white;
   background: $dark;
 }
