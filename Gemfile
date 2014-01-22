@@ -62,7 +62,7 @@ end
 
 group :test do
   gem 'shoulda'
-  gem 'selenium-webdriver', '2.37.0'
+  gem 'selenium-webdriver', '~> 2.39.0'
   gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.3.0'
 end
