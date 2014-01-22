@@ -57,7 +57,7 @@ gem 'will_paginate-foundation'
 gem 'database_cleaner'
 
 group :test, :development do
-  gem 'rspec-rails', '2.14.0'
+  gem 'rspec-rails', '~> 2.14.1'
 end
 
 group :test do
