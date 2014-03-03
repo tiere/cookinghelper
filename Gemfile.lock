@@ -50,10 +50,10 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
-    factory_girl (4.3.0)
+    factory_girl (4.4.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.3.0)
-      factory_girl (~> 4.3.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
@@ -179,7 +179,7 @@ DEPENDENCIES
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.1)
   database_cleaner
-  factory_girl_rails (= 4.3.0)
+  factory_girl_rails (~> 4.4.1)
   faker (= 1.2.0)
   figaro
   foundation-rails
