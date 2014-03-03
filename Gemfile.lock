@@ -130,8 +130,8 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    selenium-webdriver (2.39.0)
-      childprocess (>= 0.2.5)
+    selenium-webdriver (2.40.0)
+      childprocess (>= 0.5.0)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
@@ -192,7 +192,7 @@ DEPENDENCIES
   rspec-rails (~> 2.14.1)
   sass-rails (~> 4.0.1)
   sdoc
-  selenium-webdriver (~> 2.39.0)
+  selenium-webdriver (~> 2.40.0)
   shoulda
   simple_form
   uglifier (~> 2.4.0)
