@@ -3,28 +3,38 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "vendor/modernizr" %>
+
+  <title><%= full_title(yield :title) %></title>
+
+  <%= stylesheet_link_tag 'application' %>
+
+  <%= javascript_include_tag 'vendor/modernizr' %>
+  <%= javascript_include_tag 'application' %>
+
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 <%= render 'layouts/nav' %>
 <%= render 'layouts/header' %>
+
 <section id="content">
   <div class="row">
     <div class="small-12 columns">
       <% flash.each do |key, value| %>
-          <div data-alert class="alert-box <%= key %>">
+          <div class="alert-box <%= key %>" data-alert>
             <%= value %>
-            <a href="#" class="close">&times;</a>
+            <a class="close" href="#">&times;</a>
           </div>
       <% end %>
     </div>
   </div>
+
   <%= yield %>
+
 </section>
+
 <%= render 'layouts/footer' %>
-<%= javascript_include_tag "application" %>
+
 </body>
 </html>
