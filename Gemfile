@@ -6,7 +6,7 @@ ruby '2.1.1'
 gem 'rails', '~> 4.0.2'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.1'
@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 4.0.1'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.1.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.0.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  gem 'sdoc', '~> 0.4.0', require: false
 end
 
 # Use ActiveModel has_secure_password
@@ -47,21 +47,21 @@ gem 'bcrypt-ruby', '~> 3.1.5'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'foundation-rails'
-gem 'simple_form'
-gem 'nested_form'
-gem 'figaro'
-gem 'faker', '1.2.0'
-gem 'will_paginate', '3.0.5'
-gem 'will_paginate-foundation'
-gem 'database_cleaner'
+gem 'foundation-rails', '~> 5.2.0.0'
+gem 'simple_form', '~> 3.0.1'
+gem 'nested_form', '~> 0.3.2'
+gem 'figaro', '~> 0.7.0'
+gem 'faker', '~> 1.2.0'
+gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-foundation', '~> 5.3.3'
+gem 'database_cleaner', '~> 1.2.0'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.1'
 end
 
 group :test do
-  gem 'shoulda'
+  gem 'shoulda', '~> 3.5.0'
   gem 'selenium-webdriver', '~> 2.40.0'
   gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.4.1'

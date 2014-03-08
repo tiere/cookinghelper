@@ -61,7 +61,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    foundation-rails (5.1.1.0)
+    foundation-rails (5.2.0.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     hike (1.2.3)
@@ -173,22 +173,22 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.5)
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.1)
-  database_cleaner
+  database_cleaner (~> 1.2.0)
   factory_girl_rails (~> 4.4.1)
-  faker (= 1.2.0)
-  figaro
-  foundation-rails
+  faker (~> 1.2.0)
+  figaro (~> 0.7.0)
+  foundation-rails (~> 5.2.0.0)
   jbuilder (~> 2.0.2)
-  jquery-rails
-  nested_form
-  pg
+  jquery-rails (~> 3.1.0)
+  nested_form (~> 0.3.2)
+  pg (~> 0.17.1)
   rails (~> 4.0.2)
   rspec-rails (~> 2.14.1)
   sass-rails (~> 4.0.1)
-  sdoc
+  sdoc (~> 0.4.0)
   selenium-webdriver (~> 2.40.0)
-  shoulda
-  simple_form
+  shoulda (~> 3.5.0)
+  simple_form (~> 3.0.1)
   uglifier (~> 2.4.0)
-  will_paginate (= 3.0.5)
-  will_paginate-foundation
+  will_paginate (~> 3.0.5)
+  will_paginate-foundation (~> 5.3.3)
