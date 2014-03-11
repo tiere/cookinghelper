@@ -19,16 +19,18 @@
 <%= render 'layouts/header' %>
 
 <section id="content">
-  <div class="row">
-    <div class="small-12 columns">
-      <% flash.each do |key, value| %>
-          <div class="alert-box <%= key %>" data-alert>
-            <%= value %>
-            <a class="close" href="#">&times;</a>
-          </div>
-      <% end %>
-    </div>
-  </div>
+  <% unless flash.empty? %>
+      <div class="row">
+        <div class="small-12 columns">
+          <% flash.each do |key, value| %>
+              <div class="alert-box <%= key %>" data-alert>
+                <%= value %>
+                <a class="close" href="#">&times;</a>
+              </div>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
 
   <%= yield %>
 

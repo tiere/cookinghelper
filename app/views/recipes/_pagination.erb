@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="large-10 columns show-for-large-up">
+    <%= will_paginate @recipes, renderer: FoundationPagination::Rails %>
+  </div>
+  <div class="small-12 columns hide-for-large-up">
+    <%= will_paginate @recipes, page_links: false, renderer: FoundationPagination::Rails %>
+  </div>
+  <div class="small-12 large-2 columns">
+    <%= link_to 'New Recipe', new_recipe_path, class: 'button small right expand' %>
+  </div>
+</div>

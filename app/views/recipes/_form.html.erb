@@ -12,13 +12,13 @@
         <div class="row">
           <div class="small-12 columns">
             <%= f.simple_fields_for :ingredients %>
-            <%= f.link_to_add "Add an ingredient", :ingredients, class: 'button secondary small' %>
+            <%= f.link_to_add "Add an ingredient", :ingredients, class: 'right' %>
           </div>
         </div>
         <div class="row">
           <div class="small-12 columns">
             <%= f.simple_fields_for :steps %>
-            <%= f.link_to_add 'Add a step', :steps, class: 'button secondary small' %>
+            <%= f.link_to_add 'Add a step', :steps, class: 'right' %>
           </div>
         </div>
         <div class="row">
@@ -27,9 +27,10 @@
           </div>
         </div>
     <% end %>
+
     <div class="row">
       <div class="small-12 columns">
-        <%= link_to 'Back to recipes', recipes_path, class: 'secondary button small' %>
+        <%= link_to 'Back to recipes', recipes_path %>
       </div>
     </div>
   </div>
