@@ -1,10 +1,19 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_view/railtie"
+require "sprockets/railtie"
+# require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module Cookinghelper
   class Application < Rails::Application
@@ -17,17 +26,10 @@ module Cookinghelper
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    config.i18n.enforce_available_locales = true
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    #   config.action_view.field_error_proc = Proc.new do |html_tag, instance|
-    #     class_attr_index = html_tag.index 'class="'
 
-    #     if class_attr_index
-    #       html_tag.insert class_attr_index+7, 'error'
-    #     else
-    #       html_tag.insert html_tag.index('>'), ' class="error"'
-    #     end
-    #   end
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end
