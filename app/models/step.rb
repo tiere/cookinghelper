@@ -4,42 +4,34 @@ class Step < ActiveRecord::Base
   belongs_to :recipe
 
   validates :name,
-    presence: true,
-    length: { minimum: 2, maximum: 60 },
-    format: { with: /\A[a-zA-Z0-9 ]+\z/,
-              message: 'can only contain letters and numbers' }
+            presence: true,
+            length: { minimum: 2, maximum: 60 },
+            format: { with: /\A[a-zA-Z0-9 ]+\z/,
+                      message: 'can only contain letters and numbers' }
 
-    validates :duration,
-    presence: true,
-    numericality: { only_integer: true },
-    inclusion: { in: 60..86400, message:
-                 'must be between 1 minute and 24 hours' }
+  validates :duration,
+            presence: true,
+            numericality: { only_integer: true },
+            inclusion: { in: 60..86_400, message:
+                         'must be between 1 minute and 24 hours' }
 
   def duration_h
-    unless self.duration.nil?
-      self.duration.to_i.divmod(60)[0].divmod(60)[0].divmod(60)[1]
-    end
+    duration.to_i.divmod(60)[0].divmod(60)[0].divmod(60)[1] unless duration.nil?
   end
 
   def duration_m
-    self.duration.to_i.divmod(60)[0].divmod(60)[1] unless self.duration.nil?
+    duration.to_i.divmod(60)[0].divmod(60)[1] unless duration.nil?
   end
 
   def duration_s
-    self.duration.to_i.divmod(60)[1] unless self.duration.nil?
+    duration.to_i.divmod(60)[1] unless duration.nil?
   end
 
-  def duration_h=(duration)
-    @duration_h = duration
-  end
+  attr_writer :duration_h
 
-  def duration_m=(duration)
-    @duration_m = duration
-  end
+  attr_writer :duration_m
 
-  def duration_s=(duration)
-    @duration_s = duration
-  end
+  attr_writer :duration_s
 
   def sum_durations
     unless @duration_h.nil? && @duration_m.nil? && @duration_s.nil?

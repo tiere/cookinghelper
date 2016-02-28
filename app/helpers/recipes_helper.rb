@@ -5,9 +5,7 @@ module RecipesHelper
 
   def contains_editable_recipes(recipes)
     recipes.each do |recipe|
-      if recipe.user == current_user
-        return true
-      end
+      return true if recipe.user == current_user
     end
 
     false

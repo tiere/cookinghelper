@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe ApplicationHelper do
-  describe "full_title" do
-    it "should include the page title" do
-      expect(full_title("Samba")).to match(/Samba/)
+  describe 'full_title' do
+    it 'should include the page title' do
+      expect(full_title('Samba')).to match(/Samba/)
     end
 
-    it "should include the base title" do
-      expect(full_title("Samba")).to match(/^Cooking Helper/)
+    it 'should include the base title' do
+      expect(full_title('Samba')).to match(/^Cooking Helper/)
     end
   end
 end
