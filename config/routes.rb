@@ -1,4 +1,4 @@
-Cookinghelper::Application.routes.draw do
+Rails.application.routes.draw do
   root 'home#index'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
