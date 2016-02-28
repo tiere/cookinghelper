@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Cookinghelper::Application.config.secret_key_base = ENV['SECRET_TOKEN']
+Cookinghelper::Application.config.secret_key_base = '45009a95f62136a204f4620cbe5819611116fd20f92d55ae88b0726949127efe9fc36f6a60035405c160b364b30ae1e2080643378f20d0608f97037aeb472e5c'
