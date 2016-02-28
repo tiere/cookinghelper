@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'jquery-turbolinks', '~> 2.0.2'
-gem 'foundation-rails', '~> 5.2.0.0'
+gem 'foundation-rails', '~> 5.5', '>= 5.5.3.2'
 gem 'simple_form', '~> 3.0.1'
 gem 'nested_form', '~> 0.3.2'
 gem 'faker', '~> 1.2.0'
