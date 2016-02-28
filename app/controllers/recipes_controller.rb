@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
-      flash[:success] = "Recipe created"
+      flash[:success] = 'Recipe created'
       redirect_to @recipe
     else
       render 'new'
@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
 
   def update
     if @recipe.update(recipe_params)
+      flash[:success] = 'Recipe successfully updated'
       redirect_to @recipe
     else
       render 'edit'
@@ -42,7 +43,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    flash[:success] = "Recipe successfully deleted"
+    flash[:success] = 'Recipe successfully deleted'
     redirect_to root_url
   end
 
