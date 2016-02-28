@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "Home Page" do
+describe 'Home Page' do
   subject { page }
-  describe "when not signed in" do
+  describe 'when not signed in' do
     before { visit root_path }
 
     it { should have_header 'Cooking Helper' }
@@ -10,25 +10,25 @@ describe "Home Page" do
     it { should have_content('Sign Up') }
     it { should have_content('Sign In') }
 
-    it "should have all links working" do
+    it 'should have all links working' do
       visit root_path
 
-      click_link "Cooking Helper"
+      click_link 'Cooking Helper'
       expect(page).to have_title(full_title 'Home')
 
-      click_link "Cooking Helper"
-      click_link "Sign Up"
+      click_link 'Cooking Helper'
+      click_link 'Sign Up'
       expect(page).to have_title(full_title 'Sign Up')
 
-      click_link "Cooking Helper"
-      expect(page).to have_title("Home")
+      click_link 'Cooking Helper'
+      expect(page).to have_title('Home')
 
-      click_link "Sign In"
-      expect(page).to have_title("Sign In")
+      click_link 'Sign In'
+      expect(page).to have_title('Sign In')
     end
   end
 
-  describe "when signed in" do
+  describe 'when signed in' do
     let(:user) { FactoryGirl.create(:user) }
     before do
       sign_in(user)

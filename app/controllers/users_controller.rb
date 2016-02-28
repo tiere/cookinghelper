@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Changes successfully saved"
+      flash[:success] = 'Changes successfully saved'
       redirect_to @user
     else
       render 'edit'
@@ -43,10 +43,10 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if current_user?(@user)
-      redirect_to users_url, notice: "Cannot delete self"
+      redirect_to users_url, notice: 'Cannot delete self'
     else
       @user.destroy
-      flash[:success] = "User deleted"
+      flash[:success] = 'User deleted'
       redirect_to users_url
     end
   end
@@ -70,8 +70,6 @@ class UsersController < ApplicationController
   end
 
   def not_signed_in_user
-    if signed_in?
-      redirect_to root_url
-    end
+    redirect_to root_url if signed_in?
   end
 end

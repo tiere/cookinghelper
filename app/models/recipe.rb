@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_many :ingredients, dependent: :destroy
-  has_many :foodstuffs, :through => :ingredients
+  has_many :foodstuffs, through: :ingredients
   has_many :steps, dependent: :destroy
   belongs_to :category
   belongs_to :user
@@ -11,24 +11,24 @@ class Recipe < ActiveRecord::Base
   accepts_nested_attributes_for :ingredients, allow_destroy: true
 
   validates :name,
-    presence: true,
-    length: { minimum: 2, maximum: 60 },
-    format: { with: /\A[a-zA-Z0-9 ]+\z/,
-              message: "can only contain letters and numbers" }
+            presence: true,
+            length: { minimum: 2, maximum: 60 },
+            format: { with: /\A[a-zA-Z0-9 ]+\z/,
+                      message: 'can only contain letters and numbers' }
 
-    validates_associated :steps, :ingredients
+  validates_associated :steps, :ingredients
   validates :steps, :ingredients, :category, :user, presence: true
 
   def duration_to_s
-    self.steps.sum('duration')
+    steps.sum('duration')
   end
 
   def duration_to_m
-    self.steps.sum('duration') / 60
+    steps.sum('duration') / 60
   end
 
   def progress_bar_width
-    case self.duration_to_m
+    case duration_to_m
     when 1..15
       return 30
     when 16..30
@@ -41,7 +41,7 @@ class Recipe < ActiveRecord::Base
   end
 
   def progress_bar_class
-    case self.progress_bar_width
+    case progress_bar_width
     when 30
       return 'progress-green'
     when 50
