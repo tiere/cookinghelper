@@ -85,6 +85,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.17.1)
+    power_assert (0.2.7)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -149,6 +150,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    test-unit (3.1.7)
+      power_assert
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -189,6 +192,7 @@ DEPENDENCIES
   selenium-webdriver (~> 2.40.0)
   shoulda (~> 3.5.0)
   simple_form (~> 3.0.1)
+  test-unit
   turbolinks (~> 2.2.1)
   uglifier (~> 2.4.0)
   will_paginate (~> 3.0.5)
