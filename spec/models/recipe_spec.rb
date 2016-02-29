@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Recipe do
   let(:recipe) { FactoryGirl.create(:recipe) }

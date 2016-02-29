@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Ingredient do
   it { should respond_to(:quantity) }
