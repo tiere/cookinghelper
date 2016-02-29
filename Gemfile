@@ -56,7 +56,7 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda', '~> 3.5.0'
+  gem 'shoulda'
   gem 'selenium-webdriver', '~> 2.40.0'
   gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.4.1'
