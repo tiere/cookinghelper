@@ -10,7 +10,7 @@ describe Recipe do
   it { should respond_to :user }
 
   it { should validate_presence_of(:name) }
-  it { should ensure_length_of(:name).is_at_least(2).is_at_most(60) }
+  it { should validate_length_of(:name).is_at_least(2).is_at_most(60) }
   it { should allow_value('The extravagant soup of best').for(:name) }
   it { should_not allow_value('Not a #$% good name').for(:name) }
 
@@ -43,9 +43,11 @@ describe Recipe do
   describe 'progress bar' do
     describe 'when duration is between 1 and 15 minutes' do
       let(:recipe) { FactoryGirl.create(:recipe) }
+
       it 'should have correct width' do
         expect(recipe.progress_bar_width).to eq 30
       end
+
       it 'should have correct class' do
         expect(recipe.progress_bar_class).to eq 'progress-green'
       end
@@ -53,9 +55,11 @@ describe Recipe do
 
     describe 'when duration is between 16 and 30 minutes' do
       let(:recipe) { FactoryGirl.create(:recipe, steps_count: 2) }
+
       it 'should have correct width' do
         expect(recipe.progress_bar_width).to eq 50
       end
+
       it 'should have correct class' do
         expect(recipe.progress_bar_class).to eq 'progress-yellow'
       end
@@ -63,9 +67,11 @@ describe Recipe do
 
     describe 'when duration is between 31 and 60 minutes' do
       let(:recipe) { FactoryGirl.create(:recipe, steps_count: 4) }
+
       it 'should have correct width' do
         expect(recipe.progress_bar_width).to eq 80
       end
+
       it 'should have correct class' do
         expect(recipe.progress_bar_class).to eq 'progress-orange'
       end
@@ -73,9 +79,11 @@ describe Recipe do
 
     describe 'when duration is over 60 minutes' do
       let(:recipe) { FactoryGirl.create(:recipe, steps_count: 5) }
+
       it 'should have correct width' do
         expect(recipe.progress_bar_width).to eq 100
       end
+
       it 'should have correct class' do
         expect(recipe.progress_bar_class).to eq 'progress-red'
       end

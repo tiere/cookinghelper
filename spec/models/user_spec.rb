@@ -2,8 +2,12 @@ require 'rails_helper'
 
 describe User do
   before do
-    @user = User.new(name: 'Jack Sharper', email: 'jack.sharper@example.com',
-                     password: 'jellyfish', password_confirmation: 'jellyfish')
+    @user = User.new(
+      name: 'Jack Sharper',
+      email: 'jack.sharper@example.com',
+      password: 'jellyfish',
+      password_confirmation: 'jellyfish'
+    )
   end
 
   subject { @user }
@@ -47,8 +51,14 @@ describe User do
 
   describe 'when email format is invalid' do
     it 'should be invalid' do
-      addresses = %w(name@foo,com name_at_foo.org example.user@foo.
-                     foo@bar_baz.com foo@bar+baz.com hemuli.tati@testi..fi)
+      addresses = %w(
+        name@foo,com
+        name_at_foo.org
+        example.user@foo.
+        foo@bar_baz.com
+        foo@bar+baz.com
+        hemuli.tati@testi..fi
+      )
 
       addresses.each do |invalid_address|
         @user.email = invalid_address
@@ -69,7 +79,11 @@ describe User do
 
   describe 'when email format is valid' do
     it 'should be valid' do
-      addresses = %w(essi.esimerkki@joo.fi teppo@jaa.joo.com a+b@example.com)
+      addresses = %w(
+        essi.esimerkki@joo.fi
+        teppo@jaa.joo.com
+        a+b@example.com
+      )
 
       addresses.each do |valid_address|
         @user.email = valid_address
@@ -90,8 +104,12 @@ describe User do
 
   describe 'when password is not present' do
     before do
-      @user = User.new(name: 'Example User', email: 'example.user@jaa.com',
-                       password: ' ', password_confirmation: ' ')
+      @user = User.new(
+        name: 'Example User',
+        email: 'example.user@jaa.com',
+        password: ' ',
+        password_confirmation: ' '
+      )
     end
 
     it { should_not be_valid }
@@ -120,13 +138,15 @@ describe User do
       let(:user_for_invalid_password) { found_user.authenticate('invalid') }
 
       it { should_not eq user_for_invalid_password }
-      specify { expect(user_for_invalid_password).to be_false }
+      specify { expect(user_for_invalid_password).to be false }
     end
   end
 
   describe 'remember_token' do
     before { @user.save }
-    its(:remember_token) { should_not be_blank }
+    subject { @user.remember_token }
+
+    it { is_expected.not_to be_blank }
   end
 
   describe 'recipe associations' do
@@ -141,8 +161,11 @@ describe User do
 
     it 'should destroy associates recipes' do
       recipes = @user.recipes.to_a
+
       @user.destroy
+
       expect(recipes).not_to be_empty
+
       recipes.each do |recipe|
         expect(Recipe.where(id: recipe.id)).to be_empty
       end
